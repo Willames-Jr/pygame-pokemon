@@ -40,12 +40,13 @@ class BattleStatsBox(pygame.sprite.Sprite):
         self._default_font = default_font
         self._small_font = small_font
         self._is_enemy_pokemon = is_enemy_pokemon
-        self.life_diff = None
+        self.life_diff = 0
         self._actual_life_diff = 0
         self._animation_counter = 0
         # Guarda o life antes e depois de tomar dano/heal
         self._life_interval = None
         self.image, self.rect = self.make_image()
+        self._life_bar_pixels = self._life_bar.get_width()
         self._life_p_pixel = (self._life_bar.get_width() /
                               self._pokemon_total_life)
         self.redraw = True
@@ -118,38 +119,26 @@ class BattleStatsBox(pygame.sprite.Sprite):
         return image, box_position
 
     def draw(self, surface):
-        if self._is_enemy_pokemon:
-            return
-        if 80 > self._animation_counter > 0:
-            self.rect = [525, 285]
-            self._animation_counter += 1
-        else:
-            if self._animation_counter > 0:
-                self._animation_counter -= 180
-            self.rect = [525, 290]
-            self._animation_counter += 1
+        if not self._is_enemy_pokemon:
+            if 80 > self._animation_counter > 0:
+                self.rect = [525, 285]
+                self._animation_counter += 1
+            else:
+                if self._animation_counter > 0:
+                    self._animation_counter -= 180
+                self.rect = [525, 290]
+                self._animation_counter += 1
 
-        #for i in range(self._life_interval[0], self._life_interval[1]):
-
-        if self.life_diff != self._actual_life_diff and self._pokemon_actual_life > 0:
-            
+        # Altera a barra de vida enquanto a diferenca de vida for diferente de 0
+        # TODO: ?Não está fazendo animação de cura
+        if self.life_diff > 0 and self._pokemon_actual_life > 0 :
             self._pokemon_actual_life -= 1
-            self._actual_life_diff += 1
-            pixel_changed = self._actual_life_diff * self._life_p_pixel
-            self.image = self.make_image(life_change=True,changed_pixels=pixel_changed)[0]
-        else:
-            self.life_diff = self._actual_life_diff
-        print(self.life_diff,self._actual_life_diff)
-        print(self.life_diff == self._actual_life_diff)
+            self.life_diff -= 1
+            pixel_changed = self._life_bar_pixels - (self._pokemon_actual_life * self._life_p_pixel)
+            self.image = self.make_image(life_change=True, changed_pixels=pixel_changed)[0]
+
         surface.blit(self.image, self.rect)
 
     def health_modify(self, value):
-        print(value)
-        #final_life = value + self._pokemon_actual_life
-        #self.pixel_diff = self._life_bar.get_width() - ((self._life_bar.get_width()*final_life)/self._pokemon_total_life)
+        # calcula a diferenca entre a vida atual e a vida que o pokemon terá ao receber o dano/cura
         self.life_diff = (self._pokemon_actual_life - (value + self._pokemon_actual_life))
-
-    # Atualmente somente produz animações de dano
-    # def make_image(self, damage=None):
-    #     if damage != None:
-    #         self.image.

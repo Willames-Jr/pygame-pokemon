@@ -63,9 +63,13 @@ enemy_stats_box = BattleStatsBox(squirtle_pokemon, True,
 battle_handler = Battle(charmander_pokemon, squirtle_pokemon)
 battle_choice = BattleOptionsBox(charmander_pokemon, battle_handler, defaultfont,
                                  pygame.font.Font("assets/fonts/poke_font.ttf",
-                                                  55))
-principal_stats_box.health_modify(-25)
+                                                  55),
+                                 principal_stats_box,
+                                 enemy_stats_box)
+#principal_stats_box.health_modify(-25)
+#enemy_stats_box.health_modify(-25)
 all_sprites = pygame.sprite.Group(principal_stats_box, enemy_stats_box)
+count = 0
 
 while True:
 
@@ -85,29 +89,33 @@ while True:
         pkMove1 += 1
 
     #principal_stats_box.position_animation()
-    if principal_stats_box.life_diff == principal_stats_box._actual_life_diff:
-        principal_stats_box.health_modify(-24)
-    principal_stats_box.draw(screen)
+    # if count == 0 and principal_stats_box.life_diff == 0:
+    #     principal_stats_box.health_modify(5)
+    #     enemy_stats_box.health_modify(-20)
+    #     count += 1
+    # principal_stats_box.draw(screen)
+    # enemy_stats_box.draw(screen)
     screen.fill((0, 0, 0))
     screen.blit(background,  background_box)
     #screen.blit(enemy_stats_box.box, enemy_stats_box.box_position)
     screen.blit(charmander,  first_pokemon)
     screen.blit(squirtle,  (530, 50))
+    battle_choice.draw(screen)
     #screen.blit(principal_stats_box.box, principal_stats_box.box_position)
-    screen.blit(battle_choice.box,  battle_choice.box_position)
-    screen.blit(battle_choice.choice_arrow,
-                battle_choice
-                .arrow_positions[battle_choice.actual_arrow_position])
+    #screen.blit(battle_choice.box,  battle_choice.box_position)
+    #screen.blit(battle_choice.choice_arrow,
+    #             battle_choice
+    #             .arrow_positions[battle_choice.actual_arrow_position])
     
-    if battle_choice._actual_screen == "battle":
-        screen.blit(battle_choice._move1, (70, 444))
-        screen.blit(battle_choice._move2, (70, 500))
-        screen.blit(battle_choice._move3, (345, 444))
-        screen.blit(battle_choice._move4, (345, 500))
+    # if battle_choice._actual_screen == "battle":
+    #     screen.blit(battle_choice._move1, (70, 444))
+    #     screen.blit(battle_choice._move2, (70, 500))
+    #     screen.blit(battle_choice._move3, (345, 444))
+    #     screen.blit(battle_choice._move4, (345, 500))
 
-        screen.blit(battle_choice.pp, (630, 440))
-        screen.blit(battle_choice.move_pp, (745, 450))
-        screen.blit(battle_choice.move_type, (630, 510))
+    #     screen.blit(battle_choice.pp, (630, 440))
+    #     screen.blit(battle_choice.move_pp, (745, 450))
+    #     screen.blit(battle_choice.move_type, (630, 510))
     #screen.blit(player.char, player.char_box)
-    all_sprites.draw(screen)
+    #all_sprites.draw(screen)
     pygame.display.flip()

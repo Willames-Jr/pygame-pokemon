@@ -61,7 +61,7 @@ class Pokemon:
         if at_acc < int(random.uniform(1, 100)):
             print("errou")
             return AttackResult(damage=0,
-                                effectiveness="normal",
+                                effectiveness="miss",
                                 effects=[])
 
         at, dt = (["attack", "defense"]
