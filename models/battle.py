@@ -65,7 +65,7 @@ class Battle:
 
             p_attack_result = self._principal_pokemon.execute_move(principal_pokemon_attack, self._enemy_pokemon)
             battle_result.actions.append(Action(enemy_damage=p_attack_result.damage, self_heal=0, self_damage=0,
-                message=f"{self._principal_pokemon.name} use {principal_pokemon_attack.name}!"))
+                message=f"{self._principal_pokemon.name} use {principal_pokemon_attack.name}"))
             if p_attack_result.effectiveness == "miss":
                 battle_result.actions.append(Action(enemy_damage=0, self_heal=0, self_damage=0,
                 message=f"{self._principal_pokemon.name} missed the attack"))

@@ -11,7 +11,9 @@ class BattleOptionsBox(pygame.sprite.Sprite):
                  font: pygame.font.Font,
                  small_font: pygame.font.Font,
                  principal_bar: BattleStatsBox,
-                 enemy_bar: BattleStatsBox):
+                 enemy_bar: BattleStatsBox,
+                 principal_pokemon: pygame.surface.Surface,
+                 enemy_pokemon: pygame.surface.Surface):
         self._font_color = 66, 66, 66
         self._battle_handler = battle_handler
         self._need_reload = True
@@ -38,6 +40,14 @@ class BattleOptionsBox(pygame.sprite.Sprite):
             [480, 460], [690, 460],
             [480, 520], [690, 520]
         ]
+        self._principal_pokemon_sprite = principal_pokemon
+        self._enemy_pokemon_sprite = enemy_pokemon
+        self._pokemon_move = 0
+        self._pokemon_actual_faint_time = 0
+        self._total_faint_time = 500
+        self._fainted = ""
+        self._principal_pokemon_sprite_position = [80, 270]
+        self._enemy_pokemon_sprite_position = (530, 50)
 
         self._message1 = self._default_font.render("What will", True,
                                                    (255, 255, 255))
@@ -51,6 +61,8 @@ class BattleOptionsBox(pygame.sprite.Sprite):
         self.box.blit(self._message2, (40, 80))
 
     def comandHandler(self, comands):
+        if self._block_interaction:
+            return
         if (comands[pygame.K_DOWN] or comands[pygame.K_UP]
                 or comands[pygame.K_LEFT] or comands[pygame.K_DOWN]
                 or comands[pygame.K_RIGHT]):
@@ -92,7 +104,6 @@ class BattleOptionsBox(pygame.sprite.Sprite):
                 #TODO: EXIBIR MENSAGENS
                 #TODO: Outra classe tem que tomar conta de todo o proceso de batalha
                 self._battle_results = self._battle_handler.battle(self._pokemon.moves[self.actual_arrow_position])
-                print(self._battle_results)
 
         elif comands[pygame.K_x]:
             if self._actual_screen == "battle":
@@ -110,10 +121,27 @@ class BattleOptionsBox(pygame.sprite.Sprite):
                 ]
                 self.actual_arrow_position = 0
 
+    def drawPokemons(self, surface):
+        if self._pokemon_move < 100 and self._pokemon_move > 0:
+            self._principal_pokemon_sprite_position[1] = 193
+            self._pokemon_move += 1
+        else:
+            if self._pokemon_move > 0:
+                self._pokemon_move = -100
+            self._principal_pokemon_sprite_position[1] = 187
+            self._pokemon_move += 1
+        if self._fainted != "principal":
+            surface.blit(self._principal_pokemon_sprite, self._principal_pokemon_sprite_position)
+        if self._fainted != "enemy":
+            surface.blit(self._enemy_pokemon_sprite, self._enemy_pokemon_sprite_position)
+
     def draw(self, surface):
+
+        # TODO: FAZER ANIMAÇÃO DE FAINT
+        self.drawPokemons(surface)
+
         self._principal_pokemon_status_bar.draw(surface)
         self._enemy_pokemon_status_bar.draw(surface)
-        #print(len(self._battle_results.actions), self._log_time)
         if len(self._battle_results.actions) > 0 and self._log_time == 0:
             action = self._battle_results.actions[0]
             if action.is_enemy:
@@ -124,21 +152,31 @@ class BattleOptionsBox(pygame.sprite.Sprite):
             if len(self._battle_results.actions) == 0:
                 self._actual_screen = "main"
                 self._need_reload = True
+            if self._principal_pokemon_status_bar.pokemon_actual_life <= 0:
+                self._principal_fainted = True
+            if self._enemy_pokemon_status_bar.pokemon_actual_life <= 0:
+                self._enemy_fainted = True
             self.box = pygame.image.load("assets/images/battle_dialog.png").convert()
-            print(action.message)
             self._actual_message = self._default_font.render(f"{action.message}", True, (255, 255, 255))
             self.box.blit(self._actual_message, (37, 25))
             surface.blit(self.box, self.box_position)
-            self._log_time = 300
+            # alterar quando sair dos testes
+            self._log_time = 1
+            self._block_interaction = True
             return
-        elif len(self._battle_results.actions) >= 0 and 0 < self._log_time <= 300:
+        elif (len(self._battle_results.actions) >= 0 and 0 < self._log_time <= 1) or (self._principal_pokemon_status_bar.pokemon_actual_life <= 0 or self._enemy_pokemon_status_bar.pokemon_actual_life <= 0):
             self._log_time -= 1
             self.box.blit(self._actual_message, (37,25))
             surface.blit(self.box, self.box_position)
-            
+            self._block_interaction = True
+            if self._principal_pokemon_status_bar.pokemon_actual_life <= 0:
+                self._fainted = "principal"
+            elif self._enemy_pokemon_status_bar.pokemon_actual_life <= 0:
+                self._fainted = "enemy"
             return
 
         if self._actual_screen == "main":
+            self._block_interaction = False
             self.box.fill((0, 0, 0))
             self.box = pygame.image.load("assets/images/combat_choice.png").convert()
             self._message1 = self._default_font.render("What will", True,
@@ -159,6 +197,7 @@ class BattleOptionsBox(pygame.sprite.Sprite):
                          self
                          .arrow_positions[self.actual_arrow_position])
         elif self._actual_screen == "battle":
+            self._block_interaction = False
             surface.blit(self.box,  self.box_position)
             surface.blit(self._move1, (70, 444))
             surface.blit(self._move2, (70, 500))

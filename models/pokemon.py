@@ -59,7 +59,6 @@ class Pokemon:
         power = move.power
         at_acc = move.accuracy * (acc / evs)
         if at_acc < int(random.uniform(1, 100)):
-            print("errou")
             return AttackResult(damage=0,
                                 effectiveness="miss",
                                 effects=[])
@@ -140,13 +139,11 @@ class Pokemon:
                      * hh * stab
                      * effectiveness * random_multiplier)
         #print("a", ((((2*self.lvl)/5) + 2) * power * a/d)/50)
-        print(power)
         # print(stock_piles , critical
         #           , double_damage , charge
         #           , hh , stab
         #           , effectiveness , random_multiplier)
         target.hp -= damage
-        print("ACERTOU", damage)
         return AttackResult(damage=damage,
                             effectiveness="normal",
                             effects=[])

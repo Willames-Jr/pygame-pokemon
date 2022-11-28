@@ -8,7 +8,7 @@ from time import sleep
 class BattleStatsBox(pygame.sprite.Sprite):
     # box_position:  Tuple[int, int]
     # _pokemon_total_life:  int
-    # _pokemon_actual_life:  int
+    # pokemon_actual_life:  int
     # _pokemon_lvl:  int
     # _pokemon_name:  str
     # _pokemon_xp:  int
@@ -32,7 +32,7 @@ class BattleStatsBox(pygame.sprite.Sprite):
         self.box_position = None
         self._font_color = 66, 66, 66
         self._pokemon_total_life = pokemon.hp
-        self._pokemon_actual_life = pokemon.hp
+        self.pokemon_actual_life = pokemon.hp
         self._pokemon_lvl = pokemon.lvl
         self._pokemon_name = pokemon.name
         self._pokemon_xp = pokemon.xp
@@ -66,9 +66,9 @@ class BattleStatsBox(pygame.sprite.Sprite):
     def make_image(self, life_change=False,changed_pixels=0):
         critical_life = self._pokemon_total_life * 0.25
         caution_life = self._pokemon_total_life * 0.50
-        if critical_life < self._pokemon_actual_life <= caution_life:
+        if critical_life < self.pokemon_actual_life <= caution_life:
             self._life_bar = pygame.image.load("assets/images/yellow_life.png")
-        elif critical_life >= self._pokemon_actual_life:
+        elif critical_life >= self.pokemon_actual_life:
             self._life_bar = pygame.image.load("assets/images/red_life.png")
         else:
             self._life_bar = pygame.image.load("assets/images/green_life.png")
@@ -95,7 +95,7 @@ class BattleStatsBox(pygame.sprite.Sprite):
                                                    True, self._font_color)
             pokemon_lvl = self._small_font.render(str(self._pokemon_lvl), True,
                                                   self._font_color)
-            actual_life = self._small_font.render(str(self._pokemon_actual_life),
+            actual_life = self._small_font.render(str(self.pokemon_actual_life),
                                                   True, self._font_color)
             total_life = self._small_font.render(str(self._pokemon_total_life),
                                                  True, self._font_color)
@@ -131,14 +131,15 @@ class BattleStatsBox(pygame.sprite.Sprite):
 
         # Altera a barra de vida enquanto a diferenca de vida for diferente de 0
         # TODO: ?Não está fazendo animação de cura
-        if self.life_diff > 0 and self._pokemon_actual_life > 0 :
-            self._pokemon_actual_life -= 1
+        if self.life_diff > 0 and self.pokemon_actual_life > 0 :
+            self.pokemon_actual_life -= 1
             self.life_diff -= 1
-            pixel_changed = self._life_bar_pixels - (self._pokemon_actual_life * self._life_p_pixel)
+            pixel_changed = self._life_bar_pixels - (self.pokemon_actual_life * self._life_p_pixel)
             self.image = self.make_image(life_change=True, changed_pixels=pixel_changed)[0]
 
-        surface.blit(self.image, self.rect)
+        if self.pokemon_actual_life != 0:
+            surface.blit(self.image, self.rect)
 
     def health_modify(self, value):
         # calcula a diferenca entre a vida atual e a vida que o pokemon terá ao receber o dano/cura
-        self.life_diff = (self._pokemon_actual_life - (value + self._pokemon_actual_life))
+        self.life_diff = (self.pokemon_actual_life - (value + self.pokemon_actual_life))
