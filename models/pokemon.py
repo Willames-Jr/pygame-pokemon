@@ -1,5 +1,6 @@
 from attrs import define, field, validators
 from attrs import Factory
+from attrs import Attribute
 from .move import Move
 import random
 from models.non_volatile_status import NonVolatileStatus
@@ -37,16 +38,23 @@ class Pokemon:
     lvl:  int = None
     xp:  int = None
     volatile_status: list[str] = Factory(list)
-    non_volatile_status: list[str] = [NonVolatileStatus(name="poison"),
+    non_volatile_status: list[str] = Factory(lambda: [
+                                      NonVolatileStatus(name="poison"),
                                       NonVolatileStatus(name="paralysis"),
                                       NonVolatileStatus(name="freeze"),
                                       NonVolatileStatus(name="burn"),
-                                      NonVolatileStatus(name="sleep")]
+                                      NonVolatileStatus(name="sleep")
+                                      ])
     modifiers:  dict = {"attack": 0, "defense": 0, "sp_attack": 0,
                         "sp_defense": 0, "speed": 0, "accuracy": 0,
                         "evasion": 0, "critical": 0}
     accuracy:  int = 100
     evasion:  int = 100
+
+    def get_non_volatile_status(self, status_name) -> NonVolatileStatus:
+        for status in self.non_volatile_status:
+            if status.name == status_name:
+                return status
 
     def has_non_volatile_status(self) -> NonVolatileStatus:
         for status in self.non_volatile_status:
@@ -54,11 +62,30 @@ class Pokemon:
                 return status
         return None
 
-    def apply_status(self, status_name: str) -> NonVolatileStatus:
+    def get_speed(self) -> int:
+        is_paralysed = self.get_non_volatile_status("paralysis")
+        if is_paralysed:
+            return self.speed * 0.25
+        else:
+            return self.speed
+
+    def apply_status(self, status_name: str) -> None:
+        if status_name == "burn" and "fire" in self.type:
+            return
+        if status_name == "poison" and "steel" in self.type:
+            return
+        if status_name == "freeze" and "ice" in self.type:
+            return
         for status in self.non_volatile_status:
             if status.name == status_name:
                 status.active = True
                 return
+
+    def remove_status(self, status_name: str) -> None:
+        for status in self.non_volatile_status:
+            if status.name == status_name:
+                status.active = False
+                status.turns = 0
 
     def execute_move(self, move: Move, target) -> AttackResult:
         is_physical_attack = move.category == "physical"

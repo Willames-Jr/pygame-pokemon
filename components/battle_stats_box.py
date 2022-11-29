@@ -108,7 +108,7 @@ class BattleStatsBox(pygame.sprite.Sprite):
         else:
             image.blit(self._life_bar, life_position)
 
-        if pokemon_non_volatile_status != None:
+        if pokemon_non_volatile_status is not None:
             status_image = pygame.image.load(self._status_images[
                 pokemon_non_volatile_status.name])
             image.blit(status_image, non_volatile_status_position)

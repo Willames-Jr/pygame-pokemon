@@ -57,8 +57,8 @@ squirtle_pokemon = Pokemon(hp=50, type=["water"], lvl=5,
                                   Move(name="fly", type="fly",
                                        pp=15, accuracy=100, power=50)]
                            )
-squirtle_pokemon.apply_status("sleep")
-charmander_pokemon.apply_status("burn")
+squirtle_pokemon.apply_status("paralysis")
+charmander_pokemon.apply_status("sleep")
 
 principal_stats_box = BattleStatsBox(charmander_pokemon, False,
                                      smallfont, defaultfont)

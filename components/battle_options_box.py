@@ -163,10 +163,10 @@ class BattleOptionsBox(pygame.sprite.Sprite):
             self.box.blit(self._actual_message, (37, 25))
             surface.blit(self.box, self.box_position)
             # alterar quando sair dos testes
-            self._log_time = 300
+            self._log_time = 100
             self._block_interaction = True
             return
-        elif (len(self._battle_results.actions) >= 0 and 0 < self._log_time <= 300) or (self._principal_pokemon_status_bar.pokemon_actual_life <= 0 or self._enemy_pokemon_status_bar.pokemon_actual_life <= 0):
+        elif (len(self._battle_results.actions) >= 0 and 0 < self._log_time <= 100) or (self._principal_pokemon_status_bar.pokemon_actual_life <= 0 or self._enemy_pokemon_status_bar.pokemon_actual_life <= 0):
             self._log_time -= 1
             self.box.blit(self._actual_message, (37,25))
             surface.blit(self.box, self.box_position)
