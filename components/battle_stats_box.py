@@ -6,23 +6,6 @@ from time import sleep
 
 
 class BattleStatsBox(pygame.sprite.Sprite):
-    # box_position:  Tuple[int, int]
-    # _pokemon_total_life:  int
-    # pokemon_actual_life:  int
-    # _pokemon_lvl:  int
-    # _pokemon_name:  str
-    # _pokemon_xp:  int
-    # # Por enquanto não é usado
-    # _pokemon_gender:  str
-    # box:  pygame.image
-    # _life_bar:  pygame.image
-    # # Por enquanto não é usado
-    # _xp_bar:  pygame.image
-    # _font_color = 66, 66, 66
-    # _small_font:  pygame.font.Font
-    # _default_font:  pygame.font.Font
-    # _is_enemy_pokemon:  bool = False
-    # _animation_counter:  int = 0
 
     def __init__(self, pokemon: Pokemon, is_enemy_pokemon: bool,
                  small_font: pygame.font.Font,
@@ -31,6 +14,7 @@ class BattleStatsBox(pygame.sprite.Sprite):
         self._life_bar = pygame.image.load("assets/images/green_life.png")
         self.box_position = None
         self._font_color = 66, 66, 66
+        self._pokemon = pokemon
         self._pokemon_total_life = pokemon.hp
         self.pokemon_actual_life = pokemon.hp
         self._pokemon_lvl = pokemon.lvl
@@ -43,6 +27,20 @@ class BattleStatsBox(pygame.sprite.Sprite):
         self.life_diff = 0
         self._actual_life_diff = 0
         self._animation_counter = 0
+        self._status_images = {
+            "burn": "assets/images/burned.png",
+            "poison": "assets/images/poisoned.png",
+            "paralysis": "assets/images/paralysis.png",
+            "freeze": "assets/images/frozen.png",
+            "sleep": "assets/images/sleep.png"
+        }
+
+        # Medidadas para o pokemon principal e inimigo
+        self._enemy_life_position = (138, 63)
+        self._principal_pokemon_life_position = (162, 58)
+        self._enemy_pokemon_status_position = (20, 55)
+        self._principal_pokemon_status_position = (45, 73)
+
         # Guarda o life antes e depois de tomar dano/heal
         self._life_interval = None
         self.image, self.rect = self.make_image()
@@ -66,6 +64,12 @@ class BattleStatsBox(pygame.sprite.Sprite):
     def make_image(self, life_change=False,changed_pixels=0):
         critical_life = self._pokemon_total_life * 0.25
         caution_life = self._pokemon_total_life * 0.50
+        pokemon_non_volatile_status = self._pokemon.has_non_volatile_status()
+        pokemon_name = self._small_font.render(self._pokemon_name.upper(),
+                                               True, self._font_color)
+        pokemon_lvl = self._small_font.render(str(self._pokemon_lvl),
+                                              True, self._font_color)
+
         if critical_life < self.pokemon_actual_life <= caution_life:
             self._life_bar = pygame.image.load("assets/images/yellow_life.png")
         elif critical_life >= self.pokemon_actual_life:
@@ -74,27 +78,13 @@ class BattleStatsBox(pygame.sprite.Sprite):
             self._life_bar = pygame.image.load("assets/images/green_life.png")
         if self._is_enemy_pokemon:
             image = pygame.image.load("assets/images/enemy_stats.png")
-            pokemon_name = self._small_font.render(self._pokemon_name.upper(),
-                                                   True, self._font_color)
-            pokemon_lvl = self._small_font.render(str(self._pokemon_lvl),
-                                                  True, self._font_color)
-
             image.blit(pokemon_name, (20, 13))
-            if life_change:
-                new_life = self._life_bar.subsurface(pygame.Rect(0, 0,
-                                                     self._life_bar.get_width() - changed_pixels, 
-                                                     self._life_bar.get_height()))
-                image.blit(new_life, (138, 63))
-            else:
-                image.blit(self._life_bar, (138, 63))
             image.blit(pokemon_lvl, (265, 13))
+            life_position = self._enemy_life_position
+            non_volatile_status_position = self._enemy_pokemon_status_position
             box_position = (50, 60)
         else:
             image = pygame.image.load("assets/images/pokemon_stats.png")
-            pokemon_name = self._small_font.render(self._pokemon_name.upper(),
-                                                   True, self._font_color)
-            pokemon_lvl = self._small_font.render(str(self._pokemon_lvl), True,
-                                                  self._font_color)
             actual_life = self._small_font.render(str(self.pokemon_actual_life),
                                                   True, self._font_color)
             total_life = self._small_font.render(str(self._pokemon_total_life),
@@ -104,16 +94,24 @@ class BattleStatsBox(pygame.sprite.Sprite):
             image.blit(actual_life, (210, 68))
             image.blit(total_life, (285, 68))
             image.blit(pokemon_lvl, (280, 7))
-            if life_change:
-                new_life = self._life_bar.subsurface(pygame.Rect(0, 0,
-                                                     self._life_bar.get_width()  - changed_pixels, 
-                                                     self._life_bar.get_height()))
-                image.blit(new_life, (162, 58))
-            else:
-                image.blit(self._life_bar, (162, 58))
-            #image.blit(self._life_bar, (162, 58))
+            life_position = self._principal_pokemon_life_position
+            non_volatile_status_position = self._principal_pokemon_status_position
 
             box_position = (525, 285)
+
+        if life_change:
+            new_life = self._life_bar.subsurface(pygame.Rect(0, 0,
+                                                 self._life_bar.get_width()
+                                                 - changed_pixels,
+                                                 self._life_bar.get_height()))
+            image.blit(new_life, life_position)
+        else:
+            image.blit(self._life_bar, life_position)
+
+        if pokemon_non_volatile_status != None:
+            status_image = pygame.image.load(self._status_images[
+                pokemon_non_volatile_status.name])
+            image.blit(status_image, non_volatile_status_position)
 
         self.redraw = False
         return image, box_position

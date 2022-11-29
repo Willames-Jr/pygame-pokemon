@@ -1,6 +1,8 @@
 from attrs import define, field, validators
+from attrs import Factory
 from .move import Move
 import random
+from models.non_volatile_status import NonVolatileStatus
 
 
 @define
@@ -12,11 +14,6 @@ class AttackResult:
 
 @define
 class Pokemon:
-    # id:  int
-    # type:  list
-    # name:  str
-    # hp:  int
-    # attack:  int
     id:  int = None
     type:  list = None
     name:  str = None
@@ -39,14 +36,31 @@ class Pokemon:
     iv:  int = None
     lvl:  int = None
     xp:  int = None
-    conditions:  list = []
+    volatile_status: list[str] = Factory(list)
+    non_volatile_status: list[str] = [NonVolatileStatus(name="poison"),
+                                      NonVolatileStatus(name="paralysis"),
+                                      NonVolatileStatus(name="freeze"),
+                                      NonVolatileStatus(name="burn"),
+                                      NonVolatileStatus(name="sleep")]
     modifiers:  dict = {"attack": 0, "defense": 0, "sp_attack": 0,
                         "sp_defense": 0, "speed": 0, "accuracy": 0,
                         "evasion": 0, "critical": 0}
     accuracy:  int = 100
     evasion:  int = 100
 
-    def execute_move(self, move: Move, target):
+    def has_non_volatile_status(self) -> NonVolatileStatus:
+        for status in self.non_volatile_status:
+            if status.active:
+                return status
+        return None
+
+    def apply_status(self, status_name: str) -> NonVolatileStatus:
+        for status in self.non_volatile_status:
+            if status.name == status_name:
+                status.active = True
+                return
+
+    def execute_move(self, move: Move, target) -> AttackResult:
         is_physical_attack = move.category == "physical"
 
         acc = (self.accuracy * ((self.modifiers["accuracy"] + 3) / 3)
@@ -71,22 +85,22 @@ class Pokemon:
         stab = 1.5 if move.type in self.type else 1
         a = self.attack if is_physical_attack else self.sp_attack
         d = target.defense if is_physical_attack else self.sp_defense
-        burn = 0.5 if "burn" in self.conditions and is_physical_attack else 1
+        burn = 0.5 if "burn" in self.non_volatile_status and is_physical_attack else 1
         screen = (0.5
-                  if (is_physical_attack and "screen" in target.conditions)
+                  if (is_physical_attack and "screen" in target.volatile_status)
                   or (not is_physical_attack
-                      and "light_screen" in target.conditions)
+                      and "light_screen" in target.volatile_status)
                   else 1)
         # Alterar no caso de batalhas em duplas
         targets = 1
         weather = (1.5
-                   if ("rain" in target.conditions and move.type == "water")
-                   or ("harsh_sunlight" in target.conditions
+                   if ("rain" in target.volatile_status and move.type == "water")
+                   or ("harsh_sunlight" in target.volatile_status
                        and move.type == "fire")
                    else 1)
         weather = (0.5
-                   if ("rain" in target.conditions and move.type == "fire")
-                   or ("harsh_sunlight" in target.conditions
+                   if ("rain" in target.volatile_status and move.type == "fire")
+                   or ("harsh_sunlight" in target.volatile_status
                        and move.type == "water")
                    else 1)
         # No caso de haver a habilidade flash fire
@@ -96,10 +110,10 @@ class Pokemon:
         # Vira 2 se o pokemon usar certos ataques
         double_damage = 1
         charge = (2
-                  if move.type == "eletric" and "charge" in self.conditions
+                  if move.type == "eletric" and "charge" in self.volatile_status
                   else 1)
         hh = (1.5
-              if "helping_hand" in self.conditions
+              if "helping_hand" in self.volatile_status
               else 1)
         # Verificar se é super efetivo,  efetivo etc...
         effectiveness = 1

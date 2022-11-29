@@ -3,6 +3,7 @@ import sys
 from models.pokemon import Pokemon
 from models.move import Move
 from models.battle import Battle
+from models.non_volatile_status import NonVolatileStatus
 from components.battle_stats_box import BattleStatsBox
 from components.battle_options_box import BattleOptionsBox
 
@@ -42,7 +43,8 @@ charmander_pokemon = Pokemon(hp=50, lvl=5,
                                     Move(name="ember", type="fire",
                                          pp=20, accuracy=85, power=25),
                                     Move(name="fly", type="fly",
-                                         pp=15, accuracy=100, power=60)])
+                                         pp=15, accuracy=100, power=60)]
+                             )
 squirtle_pokemon = Pokemon(hp=50, type=["water"], lvl=5,
                            attack=50, defense=20,
                            speed=1, name="squirtle",
@@ -53,7 +55,11 @@ squirtle_pokemon = Pokemon(hp=50, type=["water"], lvl=5,
                                   Move(name="ember", type="fire",
                                        pp=20, accuracy=85, power=40),
                                   Move(name="fly", type="fly",
-                                       pp=15, accuracy=100, power=50)])
+                                       pp=15, accuracy=100, power=50)]
+                           )
+squirtle_pokemon.apply_status("sleep")
+charmander_pokemon.apply_status("burn")
+
 principal_stats_box = BattleStatsBox(charmander_pokemon, False,
                                      smallfont, defaultfont)
 enemy_stats_box = BattleStatsBox(squirtle_pokemon, True,
