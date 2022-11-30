@@ -6,14 +6,14 @@ from components.battle_stats_box import BattleStatsBox
 
 
 class BattleOptionsBox(pygame.sprite.Sprite):
-    def __init__(self, pokemon: Pokemon,
+    def __init__(self, pokemon: Pokemon, enemy_pokemon: Pokemon,
                  battle_handler: Battle,
                  font: pygame.font.Font,
                  small_font: pygame.font.Font,
                  principal_bar: BattleStatsBox,
                  enemy_bar: BattleStatsBox,
-                 principal_pokemon: pygame.surface.Surface,
-                 enemy_pokemon: pygame.surface.Surface):
+                 principal_pokemon_sprite: pygame.surface.Surface,
+                 enemy_pokemon_sprite: pygame.surface.Surface):
         self._font_color = 66, 66, 66
         self._battle_handler = battle_handler
         self._need_reload = True
@@ -27,6 +27,7 @@ class BattleOptionsBox(pygame.sprite.Sprite):
         self.choice_arrow = pygame.image.load("assets/images/choice_arrow.png").convert()
         self._pokemon_moves = pokemon.moves
         self._pokemon = pokemon
+        self._enemy_pokemon = enemy_pokemon
         self._default_font = font
         self._small_font = small_font
         self._log_time = 0
@@ -40,8 +41,8 @@ class BattleOptionsBox(pygame.sprite.Sprite):
             [480, 460], [690, 460],
             [480, 520], [690, 520]
         ]
-        self._principal_pokemon_sprite = principal_pokemon
-        self._enemy_pokemon_sprite = enemy_pokemon
+        self._principal_pokemon_sprite = principal_pokemon_sprite
+        self._enemy_pokemon_sprite = enemy_pokemon_sprite
         self._pokemon_move = 0
         self._pokemon_actual_faint_time = 0
         self._total_faint_time = 500
@@ -147,9 +148,18 @@ class BattleOptionsBox(pygame.sprite.Sprite):
             if action.is_enemy:
                 self._principal_pokemon_status_bar.health_modify(-action.enemy_damage)
                 self._enemy_pokemon_status_bar.health_modify(-action.self_damage)
+                if len(list(action.enemy_debuff.keys())) != 0: self._pokemon.change_modifiers(list(action.enemy_debuff.keys())[0], list(action.enemy_debuff.values())[0])
+                if len(list(action.enemy_buff.keys())) != 0: self._pokemon.change_modifiers(list(action.enemy_buff.keys())[0], list(action.enemy_buff.values())[0])
+                if len(list(action.self_debuff.keys())) != 0: self._enemy_pokemon.change_modifiers(list(action.self_debuff.keys())[0], list(action.self_debuff.values())[0])
+                if len(list(action.self_buff.keys())) != 0: self._enemy_pokemon.change_modifiers(list(action.self_buff.keys())[0], list(action.self_buff.values())[0])
             else:
                 self._enemy_pokemon_status_bar.health_modify(-action.enemy_damage)
                 self._principal_pokemon_status_bar.health_modify(-action.self_damage)
+                if len(list(action.enemy_debuff.keys())) != 0: self._enemy_pokemon.change_modifiers(list(action.enemy_debuff.keys())[0], list(action.enemy_debuff.values())[0])
+                if len(list(action.enemy_buff.keys())) != 0: self._enemy_pokemon.change_modifiers(list(action.enemy_buff.keys())[0], list(action.enemy_buff.values())[0])
+                if len(list(action.self_debuff.keys())) != 0: self._pokemon.change_modifiers(list(action.self_debuff.keys())[0], list(action.self_debuff.values())[0])
+                if len(list(action.self_buff.keys())) != 0: self._pokemon.change_modifiers(list(action.self_buff.keys())[0], list(action.self_buff.values())[0])
+            
             self._battle_results.actions.remove(action)
             if len(self._battle_results.actions) == 0:
                 self._actual_screen = "main"

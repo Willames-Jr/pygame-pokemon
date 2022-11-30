@@ -7,10 +7,15 @@ from models.non_volatile_status import NonVolatileStatus
 
 
 @define
-class AttackResult:
+class MoveResult:
     effectiveness: str
-    damage: int
-    effects: list[str]
+    enemy_damage: int
+    self_damage: int = 0
+    self_buffs: list[dict] = Factory(list)
+    enemy_debuffs: list[dict] = Factory(list)
+    self_debuffs: list[dict] = Factory(list)
+    enemy_buffs: list[dict] = Factory(list)
+    non_volatile_status: list[str] = Factory(dict)
 
 
 @define
@@ -45,9 +50,12 @@ class Pokemon:
                                       NonVolatileStatus(name="burn"),
                                       NonVolatileStatus(name="sleep")
                                       ])
-    modifiers:  dict = {"attack": 0, "defense": 0, "sp_attack": 0,
-                        "sp_defense": 0, "speed": 0, "accuracy": 0,
-                        "evasion": 0, "critical": 0}
+    modifiers:  dict = Factory(lambda: {
+                            "attack": 0, "defense": 0,
+                            "sp_attack": 0, "sp_defense": 0,
+                            "speed": 0, "accuracy": 0,
+                            "evasion": 0, "critical": 0
+                            })
     accuracy:  int = 100
     evasion:  int = 100
 
@@ -81,28 +89,38 @@ class Pokemon:
                 status.active = True
                 return
 
+    def change_modifiers(self, name, value):
+        if -6 <= self.modifiers[name] + value <= 6:
+            self.modifiers[name] += value
+        return
+
     def remove_status(self, status_name: str) -> None:
         for status in self.non_volatile_status:
             if status.name == status_name:
                 status.active = False
                 status.turns = 0
 
-    def execute_move(self, move: Move, target) -> AttackResult:
+    def execute_move(self, move: Move, target) -> MoveResult:
         is_physical_attack = move.category == "physical"
 
         acc = (self.accuracy * ((self.modifiers["accuracy"] + 3) / 3)
                if self.modifiers["accuracy"] >= 0
-               else self.accuracy * (3/(self.modifiers["accuracy"] + 3)))
+               else self.accuracy * (3/(-1*self.modifiers["accuracy"] + 3)))
         evs = (target.evasion * ((target.modifiers["evasion"] + 3) / 3)
                if target.modifiers["evasion"] >= 0
-               else target.evasion * (3/(target.modifiers["evasion"] + 3)))
+               else target.evasion * (3/(-1*target.modifiers["evasion"] + 3)))
+
+        if move.category == "status":
+            return MoveResult(enemy_damage=0,
+                              effectiveness="normal",
+                              enemy_debuffs=[x for x in move.enemy_debuffs],
+                              self_buffs=[x for x in move.self_buffs])
 
         power = move.power
         at_acc = move.accuracy * (acc / evs)
         if at_acc < int(random.uniform(1, 100)):
-            return AttackResult(damage=0,
-                                effectiveness="miss",
-                                effects=[])
+            return MoveResult(enemy_damage=0,
+                                effectiveness="miss")
 
         at, dt = (["attack", "defense"]
                   if is_physical_attack
@@ -157,18 +175,18 @@ class Pokemon:
                 a = a * ((self.modifiers[at] + 2)/2)
 
             if target.modifiers[dt] < 0:
-                d = d * (2/(target.modifiers[dt] + 2))
+                d = d * (2/(-1*target.modifiers[dt] + 2))
         else:
             critical = 1
             if self.modifiers[at] >= 0:
                 a = a * ((self.modifiers[at] + 2)/2)
             else:
-                a = a * (2/(self.modifiers[at] + 2))
+                a = a * (2/(-1*self.modifiers[at] + 2))
 
-            if target.modifiers[at] >= 0:
+            if target.modifiers[dt] >= 0:
                 d = d * ((target.modifiers[dt] + 2)/2)
             else:
-                d = d * (2/(target.modifiers[dt] + 2))
+                d = d * (2/(-1*target.modifiers[dt] + 2))
 
         damage = int(((((((2*self.lvl)/5) + 2) * power * a/d)/50) * burn
                                                                * screen
@@ -179,12 +197,14 @@ class Pokemon:
                      * double_damage * charge
                      * hh * stab
                      * effectiveness * random_multiplier)
-        #print("a", ((((2*self.lvl)/5) + 2) * power * a/d)/50)
+        # print("a", ((((2*self.lvl)/5) + 2) * power * a/d)/50)
+        target.hp -= damage
+        # print(self.name, damage)
         # print(stock_piles , critical
         #           , double_damage , charge
         #           , hh , stab
         #           , effectiveness , random_multiplier)
-        target.hp -= damage
-        return AttackResult(damage=damage,
-                            effectiveness="normal",
-                            effects=[])
+        return MoveResult(enemy_damage=damage,
+                          effectiveness="normal",
+                          enemy_debuffs=[x for x in move.enemy_debuffs],
+                          self_buffs=[x for x in move.self_buffs])
