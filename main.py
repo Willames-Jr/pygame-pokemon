@@ -1,5 +1,6 @@
 import pygame
 import sys
+import json
 from models.pokemon import Pokemon
 from models.move import Move
 from models.battle import Battle
@@ -7,6 +8,14 @@ from models.type import Type
 from models.non_volatile_status import NonVolatileStatus
 from components.battle_stats_box import BattleStatsBox
 from components.battle_options_box import BattleOptionsBox
+
+types = {}
+
+with open("./storage/types.json", "r") as types_file:
+     types_json = json.load(types_file)
+     for type_json in types_json.values():
+          type = Type.from_json(type_json)
+          types[type.name] = type
 
 pygame.init()
 
@@ -33,17 +42,11 @@ background_box.height = 416
 
 btDialog = 0
 
-fire = Type("fire",
-            ["grass", "bug", "steel", "ice"],
-            ["ground", "rock", "fire", "water"])
+fire = types["fire"]
 
-water = Type("water",
-             ["ground", "rock", "fire"],
-             ["dragon", "grass", "water"])
+water = types["water"]
 
-normal = Type(name="normal",
-              not_very_effective=["rock", "steel"],
-              no_effect=["ghost"])
+normal = types["normal"]
 
 charmander_pokemon = Pokemon(hp=50, lvl=5,
                              type=[fire], speed=63, name="charmander",

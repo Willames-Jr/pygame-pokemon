@@ -16,6 +16,13 @@ class Move:
     enemy_debuffs:  list[dict] = Factory(list)
     self_buffs:  list[dict] = Factory(list)
 
+    @classmethod
+    def from_json(cls, model):
+        return cls(model["type"], model["category"], model["name"],
+                   model["power"], model["accuracy"], model["pp"],
+                   model["condition"], model["target"], model["enemy_debuffs"],
+                   model["self_buffs"])
+
     def effectiveness(self, pokemon):
         effectiveness = 1
         effectiveness_message = ""
@@ -31,3 +38,5 @@ class Move:
         else:
             effectiveness_message = "normal"
         return effectiveness, effectiveness_message
+
+
