@@ -58,10 +58,20 @@ class Battle:
         if move_result.effectiveness == "miss":
             return [Action(enemy_damage=0, self_heal=0, self_damage=0,
                           message=f"{principal_pokemon.name} missed the attack")]
+        elif move_result.effectiveness == "has no effect":
+            return [Action(enemy_damage=0, self_heal=0, self_damage=0,
+                          message=f"has no effect!")]
         actions.append(Action(enemy_damage=move_result.enemy_damage, self_heal=0,
                               self_damage=move_result.self_damage,
                               message=f"{principal_pokemon.name} use {attack_name}!",
                               is_enemy=is_enemy))
+        if move_result.effectiveness == "super effective":
+            actions.append(Action(enemy_damage=0, self_heal=0, self_damage=0,
+                          message=f"it's super effective!"))
+        elif move_result.effectiveness == "not very effective":
+            actions.append(Action(enemy_damage=0, self_heal=0, self_damage=0,
+                          message=f"it's not very effective!"))
+
         if len(move_result.self_buffs) != 0:
             actions += self._iterate_over_buffs(principal_pokemon.name, target.name, move_result.self_buffs, True, False, is_enemy)
         if len(move_result.self_debuffs) != 0:

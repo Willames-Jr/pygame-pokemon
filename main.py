@@ -3,6 +3,7 @@ import sys
 from models.pokemon import Pokemon
 from models.move import Move
 from models.battle import Battle
+from models.type import Type
 from models.non_volatile_status import NonVolatileStatus
 from components.battle_stats_box import BattleStatsBox
 from components.battle_options_box import BattleOptionsBox
@@ -32,32 +33,43 @@ background_box.height = 416
 
 btDialog = 0
 
+fire = Type("fire",
+            ["grass", "bug", "steel", "ice"],
+            ["ground", "rock", "fire", "water"])
+
+water = Type("water",
+             ["ground", "rock", "fire"],
+             ["dragon", "grass", "water"])
+
+normal = Type(name="normal",
+              not_very_effective=["rock", "steel"],
+              no_effect=["ghost"])
 
 charmander_pokemon = Pokemon(hp=50, lvl=5,
-                             type=["fire"], speed=100, name="charmander",
-                             attack=50, defense=20,
-                             moves=[Move(name="scratch", type="normal",
+                             type=[fire], speed=63, name="charmander",
+                             attack=52, defense=43,
+                             moves=[Move(name="scratch", type=normal,
                                          pp=20, accuracy=80, power=15),
-                                    Move(name="leer", type="normal", category="status",
+                                    Move(name="leer", type=normal, category="status",
                                          pp=30, accuracy=100, power=0,
                                          enemy_debuffs=[{"defense": -1}]),
-                                    Move(name="roar", type="normal", category="status",
+                                    Move(name="roar", type=normal, category="status",
                                        pp=30, accuracy=100, power=0,
                                        self_buffs=[{"attack": 2}]),
-                                    Move(name="fly", type="fly",
+                                    Move(name="ember", type=fire,
                                          pp=15, accuracy=100, power=60)]
                              )
-squirtle_pokemon = Pokemon(hp=50, type=["water"], lvl=5,
-                           attack=50, defense=20,
-                           speed=1, name="squirtle",
-                           moves=[Move(name="scratch", type="normal",
+squirtle_pokemon = Pokemon(hp=50, type=[water], lvl=5,
+                           attack=48, defense=65,
+                           speed=43, name="squirtle",
+                           moves=[Move(name="scratch", type=normal,
                                        pp=20, accuracy=90, power=10),
-                                  Move(name="leer", type="normal", category="status",
+                                  Move(name="leer", type=normal, category="status",
                                        pp=30, accuracy=100, power=0,
                                        enemy_debuffs=[{"defense": -1}]),
-                                  Move(name="ember", type="fire",
+                                  Move(name="water gun", type=water,
                                        pp=20, accuracy=85, power=40),
-                                  Move(name="fly", type="fly",
+                                  Move(name="headbutt", type=normal,
                                        pp=15, accuracy=100, power=50)]
                            )
 principal_stats_box = BattleStatsBox(charmander_pokemon, False,

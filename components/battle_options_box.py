@@ -86,7 +86,7 @@ class BattleOptionsBox(pygame.sprite.Sprite):
             self.actual_arrow_position += 1
         if self._actual_screen == "battle": 
             self.move_pp = pygame.font.Font("assets/fonts/poke_font.ttf", 55).render(f"{self._pokemon_moves[self.actual_arrow_position].pp}/{self._pokemon_moves[self.actual_arrow_position].pp}", True, (0, 0, 0))
-            self.move_type = pygame.font.Font("assets/fonts/poke_font.ttf", 55).render(f"type/{self._pokemon_moves[self.actual_arrow_position].type.upper()}", True, self._font_color)
+            self.move_type = pygame.font.Font("assets/fonts/poke_font.ttf", 55).render(f"type/{self._pokemon_moves[self.actual_arrow_position].type.name.upper()}", True, self._font_color)
 
     def _make_choice(self, comands):
         if comands[pygame.K_z]:
@@ -100,7 +100,7 @@ class BattleOptionsBox(pygame.sprite.Sprite):
                     ]
 
                     self.move_pp = pygame.font.Font("assets/fonts/poke_font.ttf", 55).render(f"{self._pokemon_moves[self.actual_arrow_position].pp}/{self._pokemon_moves[self.actual_arrow_position].pp}", True, (0, 0, 0))
-                    self.move_type = pygame.font.Font("assets/fonts/poke_font.ttf", 55).render(f"type/{self._pokemon_moves[self.actual_arrow_position].type.upper()}", True, self._font_color)
+                    self.move_type = pygame.font.Font("assets/fonts/poke_font.ttf", 55).render(f"type/{self._pokemon_moves[self.actual_arrow_position].type.name.upper()}", True, self._font_color)
             elif self._actual_screen == "battle":
                 #TODO: EXIBIR MENSAGENS
                 #TODO: Outra classe tem que tomar conta de todo o proceso de batalha
@@ -173,10 +173,10 @@ class BattleOptionsBox(pygame.sprite.Sprite):
             self.box.blit(self._actual_message, (37, 25))
             surface.blit(self.box, self.box_position)
             # alterar quando sair dos testes
-            self._log_time = 100
+            self._log_time = 300
             self._block_interaction = True
             return
-        elif (len(self._battle_results.actions) >= 0 and 0 < self._log_time <= 100) or (self._principal_pokemon_status_bar.pokemon_actual_life <= 0 or self._enemy_pokemon_status_bar.pokemon_actual_life <= 0):
+        elif (len(self._battle_results.actions) >= 0 and 0 < self._log_time <= 300) or (self._principal_pokemon_status_bar.pokemon_actual_life <= 0 or self._enemy_pokemon_status_bar.pokemon_actual_life <= 0):
             self._log_time -= 1
             self.box.blit(self._actual_message, (37,25))
             surface.blit(self.box, self.box_position)

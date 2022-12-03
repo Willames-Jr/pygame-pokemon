@@ -77,12 +77,18 @@ class Pokemon:
         else:
             return self.speed
 
+    def has_type(self, type_name: str) -> bool:
+        for type in self.type:
+            if type.name == type_name:
+                return True
+        return False
+
     def apply_status(self, status_name: str) -> None:
-        if status_name == "burn" and "fire" in self.type:
+        if status_name == "burn" and self.has_type("fire"):
             return
-        if status_name == "poison" and "steel" in self.type:
+        if status_name == "poison" and self.has_type("steel"):
             return
-        if status_name == "freeze" and "ice" in self.type:
+        if status_name == "freeze" and self.has_type("ice"):
             return
         for status in self.non_volatile_status:
             if status.name == status_name:
@@ -127,7 +133,7 @@ class Pokemon:
                   else ["sp_attack", "sp_defense"])
         random_number = random.random()
 
-        stab = 1.5 if move.type in self.type else 1
+        stab = 1.5 if self.has_type(move.type.name) else 1
         a = self.attack if is_physical_attack else self.sp_attack
         d = target.defense if is_physical_attack else self.sp_defense
         burn = 0.5 if "burn" in self.non_volatile_status and is_physical_attack else 1
@@ -139,14 +145,14 @@ class Pokemon:
         # Alterar no caso de batalhas em duplas
         targets = 1
         weather = (1.5
-                   if ("rain" in target.volatile_status and move.type == "water")
+                   if ("rain" in target.volatile_status and move.type.name == "water")
                    or ("harsh_sunlight" in target.volatile_status
-                       and move.type == "fire")
+                       and move.type.name == "fire")
                    else 1)
         weather = (0.5
-                   if ("rain" in target.volatile_status and move.type == "fire")
+                   if ("rain" in target.volatile_status and move.type.name == "fire")
                    or ("harsh_sunlight" in target.volatile_status
-                       and move.type == "water")
+                       and move.type.name == "water")
                    else 1)
         # No caso de haver a habilidade flash fire
         ff = 1
@@ -155,13 +161,13 @@ class Pokemon:
         # Vira 2 se o pokemon usar certos ataques
         double_damage = 1
         charge = (2
-                  if move.type == "eletric" and "charge" in self.volatile_status
+                  if move.type.name == "eletric" and "charge" in self.volatile_status
                   else 1)
         hh = (1.5
               if "helping_hand" in self.volatile_status
               else 1)
-        # Verificar se é super efetivo,  efetivo etc...
-        effectiveness = 1
+        effectiveness, effectiveness_message = move.effectiveness(target)
+
         random_multiplier = float(random.uniform(0.85, 1))
 
         if ((self.modifiers["critical"] == 0 and random_number <= 1/16)
@@ -204,7 +210,8 @@ class Pokemon:
         #           , double_damage , charge
         #           , hh , stab
         #           , effectiveness , random_multiplier)
+        print("Contra:", target.name, "dano:",damage)
         return MoveResult(enemy_damage=damage,
-                          effectiveness="normal",
+                          effectiveness=effectiveness_message,
                           enemy_debuffs=[x for x in move.enemy_debuffs],
                           self_buffs=[x for x in move.self_buffs])
