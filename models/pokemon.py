@@ -10,12 +10,14 @@ from models.non_volatile_status import NonVolatileStatus
 class MoveResult:
     effectiveness: str
     enemy_damage: int
-    self_damage: int = 0
-    self_buffs: list[dict] = Factory(list)
-    enemy_debuffs: list[dict] = Factory(list)
-    self_debuffs: list[dict] = Factory(list)
-    enemy_buffs: list[dict] = Factory(list)
-    non_volatile_status: list[str] = Factory(dict)
+    # Esse atributo representa um valor a ser adicionado a vida do pokemon que realizou o movimento
+    # Ou seja, pode ser tanto um recoil, tanto um heal
+    drain: int = 0
+    target: str = ""
+    user_status_changes: list[str] = Factory(dict)
+    enemy_status_changes: list[str] = Factory(dict)
+    user_non_volatile_status: list[str] = Factory(dict)
+    enemy_non_volatile_status: list[str] = Factory(dict)
 
 
 @define
@@ -58,6 +60,23 @@ class Pokemon:
                             })
     accuracy:  int = 100
     evasion:  int = 100
+
+    @classmethod
+    def from_json(cls, model):
+        return cls(
+            type=model["type"],
+            name=model["name"],
+            hp=model["hp"],
+            attack=model["attack"],
+            defense=model["defense"],
+            sp_attack=model["sp_attack"],
+            sp_defense=model["sp_defense"],
+            speed=model["speed"],
+            back_image=model["back_image"],
+            front_image=model["front_image"],
+            moves=model["moves"],
+            lvl=model["lvl"]
+            )
 
     def get_non_volatile_status(self, status_name) -> NonVolatileStatus:
         for status in self.non_volatile_status:
@@ -106,9 +125,26 @@ class Pokemon:
                 status.active = False
                 status.turns = 0
 
-    def execute_move(self, move: Move, target) -> MoveResult:
+    def execute_move(self, move: Move, user, target, total_hits: int = None, actual_hit: int = 0, previous_results: list[MoveResult] = None) -> MoveResult:
         is_physical_attack = move.category == "physical"
+        
+        # Somente usado caso o ataque acerte mais de uma vez, como fury attack
+        number_of_hits = move.hits_number()
+        if number_of_hits != 1 and total_hits is None:
+            total_hits = number_of_hits
+        actual_hit += 1
+        # Define quem é o alvo do ataque, por enquanto não é usado
+        if move.target == "user":
+            move_target = "user"
+        elif "opponent" in move.target:
+            move_target = "opponent"
 
+        # Verificando se o movimento aplica algum efeito nos status ou aplica
+        # status não volatil, como poison, freeze etc.
+        status_change = move.applyStatus(user, target)
+        non_volatile_status = move.applyNonVolatileStatus(user, target)
+
+        
         acc = (self.accuracy * ((self.modifiers["accuracy"] + 3) / 3)
                if self.modifiers["accuracy"] >= 0
                else self.accuracy * (3/(-1*self.modifiers["accuracy"] + 3)))
@@ -117,10 +153,25 @@ class Pokemon:
                else target.evasion * (3/(-1*target.modifiers["evasion"] + 3)))
 
         if move.category == "status":
-            return MoveResult(enemy_damage=0,
-                              effectiveness="normal",
-                              enemy_debuffs=[x for x in move.enemy_debuffs],
-                              self_buffs=[x for x in move.self_buffs])
+            healing = move.applyHealing(user)
+            drain = move.applyDrain(user, target, 0)
+            if drain == 0:
+                drain = healing
+
+            move_result = MoveResult(enemy_damage=0,
+                                 drain=drain,
+                                 effectiveness="normal")
+            if status_change is not None:
+                if status_change.target == "enemy":
+                    move_result.enemy_status_changes = status_change
+                else:
+                    move_result.user_status_changes = status_change
+            if non_volatile_status is not None:
+                if non_volatile_status.target == "enemy":
+                    move_result.enemy_non_volatile_status = non_volatile_status
+                else:
+                    move_result.user_non_volatile_status = non_volatile_status
+            return [move_result]
 
         power = move.power
         at_acc = move.accuracy * (acc / evs)
@@ -135,7 +186,7 @@ class Pokemon:
 
         stab = 1.5 if self.has_type(move.type.name) else 1
         a = self.attack if is_physical_attack else self.sp_attack
-        d = target.defense if is_physical_attack else self.sp_defense
+        d = target.defense if is_physical_attack else target.sp_defense
         burn = 0.5 if "burn" in self.non_volatile_status and is_physical_attack else 1
         screen = (0.5
                   if (is_physical_attack and "screen" in target.volatile_status)
@@ -161,7 +212,7 @@ class Pokemon:
         # Vira 2 se o pokemon usar certos ataques
         double_damage = 1
         charge = (2
-                  if move.type.name == "eletric" and "charge" in self.volatile_status
+                  if move.type.name == "electric" and "charge" in self.volatile_status
                   else 1)
         hh = (1.5
               if "helping_hand" in self.volatile_status
@@ -210,8 +261,30 @@ class Pokemon:
         #           , double_damage , charge
         #           , hh , stab
         #           , effectiveness , random_multiplier)
-        print("Contra:", target.name, "dano:",damage)
-        return MoveResult(enemy_damage=damage,
-                          effectiveness=effectiveness_message,
-                          enemy_debuffs=[x for x in move.enemy_debuffs],
-                          self_buffs=[x for x in move.self_buffs])
+        
+
+        # Valor a ser adicionado ou subtraido da vida do pokemon atacante
+        drain = move.applyDrain(user, target, damage)
+
+        move_result = MoveResult(enemy_damage=damage,
+                                 drain=drain,
+                                 effectiveness=effectiveness_message)
+        if status_change is not None:
+            if "opponent" in status_change.target:
+                move_result.enemy_status_changes = status_change
+            else:
+                move_result.user_status_changes = status_change
+        
+        if non_volatile_status is not None:
+            if "opponent" in non_volatile_status.target:
+                move_result.enemy_non_volatile_status = non_volatile_status
+            else:
+                move_result.user_non_volatile_status = non_volatile_status
+
+        battle_result = [move_result]
+        if number_of_hits != 1:
+            self.execute_move(move, target, total_hits, actual_hit, battle_result + previous_results)
+        elif number_of_hits == total_hits:
+            return battle_result + previous_results
+        else:
+            return battle_result

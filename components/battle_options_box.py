@@ -147,19 +147,24 @@ class BattleOptionsBox(pygame.sprite.Sprite):
             action = self._battle_results.actions[0]
             if action.is_enemy:
                 self._principal_pokemon_status_bar.health_modify(-action.enemy_damage)
-                self._enemy_pokemon_status_bar.health_modify(-action.self_damage)
-                if len(list(action.enemy_debuff.keys())) != 0: self._pokemon.change_modifiers(list(action.enemy_debuff.keys())[0], list(action.enemy_debuff.values())[0])
-                if len(list(action.enemy_buff.keys())) != 0: self._pokemon.change_modifiers(list(action.enemy_buff.keys())[0], list(action.enemy_buff.values())[0])
-                if len(list(action.self_debuff.keys())) != 0: self._enemy_pokemon.change_modifiers(list(action.self_debuff.keys())[0], list(action.self_debuff.values())[0])
-                if len(list(action.self_buff.keys())) != 0: self._enemy_pokemon.change_modifiers(list(action.self_buff.keys())[0], list(action.self_buff.values())[0])
+                self._enemy_pokemon_status_bar.health_modify(action.drain)
+                if action.enemy_status_change != [] or action.self_status_change != []:
+                    for status in action.enemy_status_change:
+                        self._pokemon.change_modifiers(status.name, status.value)
+                
+                    for status in action.self_status_change:
+                        self._enemy_pokemon.change_modifiers(status.name, status.value)
             else:
                 self._enemy_pokemon_status_bar.health_modify(-action.enemy_damage)
-                self._principal_pokemon_status_bar.health_modify(-action.self_damage)
-                if len(list(action.enemy_debuff.keys())) != 0: self._enemy_pokemon.change_modifiers(list(action.enemy_debuff.keys())[0], list(action.enemy_debuff.values())[0])
-                if len(list(action.enemy_buff.keys())) != 0: self._enemy_pokemon.change_modifiers(list(action.enemy_buff.keys())[0], list(action.enemy_buff.values())[0])
-                if len(list(action.self_debuff.keys())) != 0: self._pokemon.change_modifiers(list(action.self_debuff.keys())[0], list(action.self_debuff.values())[0])
-                if len(list(action.self_buff.keys())) != 0: self._pokemon.change_modifiers(list(action.self_buff.keys())[0], list(action.self_buff.values())[0])
-            
+                self._principal_pokemon_status_bar.health_modify(action.drain)
+                # print(action)
+                if action.enemy_status_change != [] or action.self_status_change != []:
+                    for status in action.enemy_status_change:
+                        self._enemy_pokemon.change_modifiers(status.name, status.value)
+                    for status in action.self_status_change:
+                        self._pokemon.change_modifiers(status.name, status.value)
+            # print(self._pokemon.modifiers)
+            # print(self._enemy_pokemon.modifiers)
             self._battle_results.actions.remove(action)
             if len(self._battle_results.actions) == 0:
                 self._actual_screen = "main"

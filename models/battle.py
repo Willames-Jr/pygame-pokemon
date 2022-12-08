@@ -1,4 +1,3 @@
-from models.move import Move
 from attrs import define
 from attrs import Factory
 import random
@@ -9,18 +8,17 @@ import random
 @define
 class Action:
     is_enemy: bool = False
+    message: str = ""
     skip_turn: bool = False
     enemy_damage: int = 0
-    self_heal: int = 0
-    self_damage: int = 0
-    self_buff: dict = Factory(dict)
-    self_debuff: dict = Factory(dict)
-    enemy_buff: dict = Factory(dict)
-    enemy_debuff: dict = Factory(dict)
-    message: str = ""
+    drain: int = 0
+    target: str = ""
+    self_status_change: list = Factory(list)
+    enemy_status_change: list = Factory(list)
+    stat_change: list[dict] = Factory(list)
 
 
-# O resultado de uma batlaha é nada mais do que uma sequência de ações
+# O resultado de uma batalha é nada mais do que uma sequência de ações
 @define
 class BattleResults:
     actions: list[Action] = Factory(list)
@@ -31,61 +29,71 @@ class Battle:
         self._principal_pokemon = principal_pokemon
         self._enemy_pokemon = enemy_pokemon
 
-    def _iterate_over_buffs(self, principal_name, enemy_name, buffs, is_buff, is_for_enemy, is_enemy) -> list[Action]:
+    def _iterate_over_status_changes(self, user_name, target_name, status_changes, user_is_enemy) -> list[Action]:
         actions = []
-        for buff in buffs:
-            name, value = list(buff.keys())[0], list(buff.values())[0]
-            if value > 0:
+        target = status_changes.target
+        for stat in status_changes.status:
+            if stat.value > 0:
                 message = "rose"
             else:
                 message = "fell"
-            if is_for_enemy:
-                pokemon_name = enemy_name
+            if "opponent" in target:
+                pokemon_name = target_name
             else:
-                pokemon_name = principal_name
-            actions.append(Action(enemy_damage=0, self_heal=0,
-                                  self_damage=0,
-                                  self_buff={name: value} if is_buff and not is_for_enemy else {},
-                                  self_debuff={name: value} if not is_buff and not is_for_enemy else {},
-                                  enemy_buff={name: value} if is_buff and is_for_enemy else {},
-                                  enemy_debuff={name: value} if not is_buff and is_for_enemy else {},
-                                  message=f"{pokemon_name}'s {name} {message}!",
-                                  is_enemy=is_enemy))
+                pokemon_name = user_name
+            if "opponent" in target:
+                enemy_status = [stat]
+                self_status = []
+            else:
+                enemy_status = []
+                self_status = [stat]
+            actions.append(Action(enemy_damage=0, drain=0,
+                                  enemy_status_change=enemy_status,
+                                  self_status_change=self_status,
+                                  message=f"{pokemon_name}'s {stat.name} {message}!",
+                                  is_enemy=user_is_enemy))
         return actions
 
-    def _create_actions(self, move_result, principal_pokemon, target, attack_name, is_enemy) -> list[Action]:
+    def _iterate_over_non_volatile_status(self, user, target, move_result, user_is_enemy) -> list[Action]:
+        if user_is_enemy and move_result.target == "user":
+            user.apply_status(move_result.non_volatile_status.non.name)
+        elif (user_is_enemy and ("opponent" in move_result.target or move_result.target == "selected-pokemon")):
+            target.apply_status(move_result.non_volatile_status.name)
+        elif (not user_is_enemy and ("opponent" in move_result.target or move_result.target == "selected-pokemon")):
+            target.apply_status(move_result.non_volatile_status.name)
+        elif not user_is_enemy and move_result.target == "user":
+            user.aapply_status(move_result.non_volatile_status.name)
+
+    def _create_actions(self, moves_result, user, target, attack_name, user_is_enemy) -> list[Action]:
         actions = []
-        if move_result.effectiveness == "miss":
-            return [Action(enemy_damage=0, self_heal=0, self_damage=0,
-                          message=f"{principal_pokemon.name} missed the attack")]
-        elif move_result.effectiveness == "has no effect":
-            return [Action(enemy_damage=0, self_heal=0, self_damage=0,
-                          message=f"has no effect!")]
-        actions.append(Action(enemy_damage=move_result.enemy_damage, self_heal=0,
-                              self_damage=move_result.self_damage,
-                              message=f"{principal_pokemon.name} use {attack_name}!",
-                              is_enemy=is_enemy))
-        if move_result.effectiveness == "super effective":
-            actions.append(Action(enemy_damage=0, self_heal=0, self_damage=0,
-                          message=f"it's super effective!"))
-        elif move_result.effectiveness == "not very effective":
-            actions.append(Action(enemy_damage=0, self_heal=0, self_damage=0,
-                          message=f"it's not very effective!"))
-
-        if len(move_result.self_buffs) != 0:
-            actions += self._iterate_over_buffs(principal_pokemon.name, target.name, move_result.self_buffs, True, False, is_enemy)
-        if len(move_result.self_debuffs) != 0:
-            actions += self._iterate_over_buffs(principal_pokemon.name, target.name, move_result.self_debuffs, False, False, is_enemy)
-        if len(move_result.enemy_buffs) != 0:
-            actions += self._iterate_over_buffs(principal_pokemon.name, target.name, move_result.enemy_buffs, True, True, is_enemy)
-        if len(move_result.enemy_debuffs) != 0:
-            actions += self._iterate_over_buffs(principal_pokemon.name, target.name, move_result.enemy_debuffs, False, True, is_enemy)
+        for move_result in moves_result:
+            if move_result.effectiveness == "miss":
+                return [Action(enemy_damage=0, drain=0,
+                              message=f"{user.name} missed the attack")]
+            elif move_result.effectiveness == "has no effect":
+                return [Action(enemy_damage=0, drain=0,
+                              message=f"has no effect!")]
+            actions.append(Action(enemy_damage=move_result.enemy_damage, drain=move_result.drain,
+                                  message=f"{user.name} use {attack_name}!",
+                                  is_enemy=user_is_enemy))
+            if move_result.effectiveness == "super effective":
+                actions.append(Action(enemy_damage=0, drain=0,
+                              message=f"it's super effective!"))
+            elif move_result.effectiveness == "not very effective":
+                actions.append(Action(enemy_damage=0, drain=0,
+                              message=f"it's not very effective!"))
+            if move_result.user_status_changes != {}:
+                actions += self._iterate_over_status_changes(user.name, target.name, move_result.user_status_changes, user_is_enemy)
+            if move_result.enemy_status_changes != {}:
+                actions += self._iterate_over_status_changes(user.name, target.name, move_result.enemy_status_changes, user_is_enemy)
+            if move_result.user_non_volatile_status != {}:
+                self._iterate_over_non_volatile_status(user, target, move_result.user_non_volatile_status, user_is_enemy)
+            if move_result.enemy_non_volatile_status != {}:
+                self._iterate_over_non_volatile_status(user, target, move_result.enemy_non_volatile_status, user_is_enemy)
 
         return actions
 
-
-
-    def battle(self, principal_pokemon_attack: Move):
+    def battle(self, principal_pokemon_attack):
         battle_result = BattleResults()
         principal_pokemon_non_volatile_status = self._principal_pokemon.has_non_volatile_status()
         enemy_pokemon_non_volatile_status = self._enemy_pokemon.has_non_volatile_status()
@@ -113,57 +121,43 @@ class Battle:
         # Atacando o outro pokemon
         if self._principal_pokemon.get_speed() > self._enemy_pokemon.get_speed():
             if principal_pokemon_can_attack:
-                p_attack_result = self._principal_pokemon.execute_move(principal_pokemon_attack, self._enemy_pokemon)
+                p_attack_result = self._principal_pokemon.execute_move(principal_pokemon_attack, self._principal_pokemon, self._enemy_pokemon)
                 battle_result.actions += self._create_actions(p_attack_result, self._principal_pokemon, self._enemy_pokemon, principal_pokemon_attack.name, False)
 
-                # battle_result.actions.append(Action(enemy_damage=p_attack_result.damage, self_heal=0, self_damage=0,
-                #     message=f"{self._principal_pokemon.name} use {principal_pokemon_attack.name}!"))
-                # if p_attack_result.effectiveness == "miss":
-                #     battle_result.actions.append(Action(enemy_damage=0, self_heal=0, self_damage=0,
-                #     message=f"{self._principal_pokemon.name} missed the attack"))
-
                 if self._principal_pokemon.hp <= 0 or self._enemy_pokemon.hp <= 0:
-                    battle_result.actions.append(Action(is_enemy=True, enemy_damage=0, self_heal=0, self_damage=0,
+                    battle_result.actions.append(Action(is_enemy=True, enemy_damage=0, drain=0,
                     message=f"{self._enemy_pokemon.name} is fainted"))
+                    battle_result.actions.append(Action(is_enemy=True, enemy_damage=0, drain=0,
+                    message=f"You win"))
                     return battle_result
             if enemy_pokemon_can_attack:
-                e_attack_result = self._enemy_pokemon.execute_move(enemy_pokemon_attack,self._principal_pokemon)
+                e_attack_result = self._enemy_pokemon.execute_move(enemy_pokemon_attack, self._enemy_pokemon, self._principal_pokemon)
                 battle_result.actions += self._create_actions(e_attack_result, self._enemy_pokemon, self._principal_pokemon, enemy_pokemon_attack.name, True)
-                # battle_result.actions.append(Action(is_enemy=True, enemy_damage=e_attack_result.damage, self_heal=0, self_damage=0,
-                #     message=f"{self._enemy_pokemon.name} use {enemy_pokemon_attack.name}!"))
-                # if e_attack_result.effectiveness == "miss":
-                #     battle_result.actions.append(Action(is_enemy=True, enemy_damage=0, self_heal=0, self_damage=0,
-                #     message=f"{self._enemy_pokemon.name} missed the attack"))
         else:
             if enemy_pokemon_can_attack:
-                e_attack_result = self._enemy_pokemon.execute_move(enemy_pokemon_attack,self._principal_pokemon)
+                e_attack_result = self._enemy_pokemon.execute_move(enemy_pokemon_attack, self._enemy_pokemon, self._principal_pokemon)
                 battle_result.actions += self._create_actions(e_attack_result, self._enemy_pokemon, self._principal_pokemon, enemy_pokemon_attack.name, True)
-                # battle_result.actions.append(Action(is_enemy=True, enemy_damage=e_attack_result.damage, self_heal=0, self_damage=0,
-                #     message=f"{self._enemy_pokemon.name} use {enemy_pokemon_attack.name}!"))
-                # if e_attack_result.effectiveness == "miss":
-                #     battle_result.actions.append(Action(is_enemy=True, enemy_damage=0, self_heal=0, self_damage=0,
-                #     message=f"{self._enemy_pokemon.name} missed the attack"))
 
                 if self._principal_pokemon.hp <= 0 or self._enemy_pokemon.hp <= 0:
-                    battle_result.actions.append(Action(enemy_damage=0, self_heal=0, self_damage=0,
+                    battle_result.actions.append(Action(enemy_damage=0, drain=0,
                     message=f"{self._principal_pokemon.name} is fainted"))
+                    battle_result.actions.append(Action(enemy_damage=0, drain=0,
+                    message=f"You lose"))
                     return battle_result
             if principal_pokemon_can_attack:
-                p_attack_result = self._principal_pokemon.execute_move(principal_pokemon_attack, self._enemy_pokemon)
+                p_attack_result = self._principal_pokemon.execute_move(principal_pokemon_attack, self._principal_pokemon, self._enemy_pokemon)
                 battle_result.actions += self._create_actions(p_attack_result, self._principal_pokemon, self._enemy_pokemon, principal_pokemon_attack.name, False)
-                # battle_result.actions.append(Action(enemy_damage=p_attack_result.damage, self_heal=0, self_damage=0,
-                #     message=f"{self._principal_pokemon.name} use {principal_pokemon_attack.name}"))
-                # if p_attack_result.effectiveness == "miss":
-                #     battle_result.actions.append(Action(enemy_damage=0, self_heal=0, self_damage=0,
-                #     message=f"{self._principal_pokemon.name} missed the attack"))
 
         if self._principal_pokemon.hp <= 0:
-            battle_result.actions.append(Action(enemy_damage=0, self_heal=0, self_damage=0,
+            battle_result.actions.append(Action(enemy_damage=0, drain=0,
                 message=f"{self._principal_pokemon.name} is fainted"))
+            battle_result.actions.append(Action(enemy_damage=0, drain=0,
+                    message=f"You lose"))
         if self._enemy_pokemon.hp <= 0:
-            battle_result.actions.append(Action(enemy_damage=0, self_heal=0, self_damage=0,
+            battle_result.actions.append(Action(enemy_damage=0, drain=0,
                 message=f"{self._enemy_pokemon.name} is fainted"))
-        
+            battle_result.actions.append(Action(is_enemy=True, enemy_damage=0, drain=0,
+                    message=f"You win"))
         if principal_pokemon_non_volatile_status != None:
             if principal_pokemon_non_volatile_status.name in ["burn","poison"]:
                 battle_result.actions.append(principal_pokemon_non_volatile_status.apply(

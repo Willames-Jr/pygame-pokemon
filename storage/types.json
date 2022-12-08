@@ -14,7 +14,7 @@
     "flying":{
         "name":"flying",
         "super_effective": ["fighting","bug","grass"],
-        "not_very_effective": ["rock","steel","eletric"],
+        "not_very_effective": ["rock","steel","electric"],
         "no_effect": []
     },
     "poison":{
@@ -25,7 +25,7 @@
     },
     "ground":{
         "name":"ground",
-        "super_effective": ["poison","rock","steel","fire","eletric"],
+        "super_effective": ["poison","rock","steel","fire","electric"],
         "not_very_effective": ["bug","grass"],
         "no_effect": ["flying"]
     },
@@ -50,7 +50,7 @@
     "steel":{
         "name":"steel",
         "super_effective": ["rock","ice","fairy"],
-        "not_very_effective": ["steel","fire","water","eletric",""],
+        "not_very_effective": ["steel","fire","water","electric",""],
         "no_effect": []
     },
     "fire":{
@@ -71,16 +71,16 @@
         "not_very_effective": ["fire","flying","poison","bug","steel","grass","dragon"],
         "no_effect": []
     },
-    "eletric":{
-        "name":"eletric",
+    "electric":{
+        "name":"electric",
         "super_effective": ["flying","water"],
-        "not_very_effective": ["grass","eletric","dragon"],
+        "not_very_effective": ["grass","electric","dragon"],
         "no_effect": ["ground"]
     },
     "psychic":{
         "name":"psychic",
         "super_effective": ["fighting","poison"],
-        "not_very_effective": ["steel","eletric"],
+        "not_very_effective": ["steel","electric"],
         "no_effect": ["dark"]
     },
     "ice":{

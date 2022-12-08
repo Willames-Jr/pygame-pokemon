@@ -10,17 +10,59 @@ class NonVolatileStatus:
     sleep_counter: int = 0
     active: bool = False
 
+    def activate(self, pokemon, is_enemy_pokemon):
+        if not self.active:
+            self.active = True
+            self.sleep_counter = 0
+            self.turns = 0
+            pokemon.non_volatile_status = self
+            message = ""
+            skip_turn = False
+
+            if self.name == "burn":
+                message = f"{pokemon.name} is burned!"
+
+            if self.name == "poison":
+                message = f"{pokemon.name} is poisoned!"
+
+            if self.name == "sleep":
+                message = f"{pokemon.name} is fast asleep!"
+                skip_turn = True
+            if self.name == "freeze":
+                message = f"{pokemon.name} is frozen solid!"
+                skip_turn = True
+
+            if self.name == "paralysis":
+                paralysed = int(random.uniform(1, 100))
+                if paralysed <= 25:
+                    message = f"{pokemon.name} is paralyzed! It can't move"
+                    skip_turn = True
+                else:
+                    return None
+
+            return Action(is_enemy=is_enemy_pokemon, enemy_damage=0,
+                          self_heal=0, drain=0,
+                          message=message, skip_turn=skip_turn)
+
+    def remove(self):
+        if not self.active:
+            self.active = False
+            self.sleep_counter = 0
+            self.turns = 0
+            pokemon.non_volatile_status = None
+
+
     def apply(self, pokemon, is_enemy_pokemon=False):
         damage = 0
         message = ""
         skip_turn = False
 
         if self.name == "burn":
-            damage = int(pokemon.hp/8)
+            damage = -1*int(pokemon.hp/8)
             message = f"{pokemon.name} is hurt by burn!"
 
         if self.name == "poison":
-            damage = int(pokemon.hp/8)
+            damage = -1*int(pokemon.hp/8)
             message = f"{pokemon.name} is hurt by poison!"
 
         if self.name == "sleep":
@@ -53,5 +95,5 @@ class NonVolatileStatus:
 
         self.turns += 1
         return Action(is_enemy=is_enemy_pokemon, enemy_damage=0,
-                      self_heal=0, self_damage=damage,
-                      message=message, skip_turn=skip_turn)
+                      drain=damage,
+                      message=message, skip_turn=skip_turn, target="")
