@@ -50,7 +50,7 @@ class BattleOptionsBox(pygame.sprite.Sprite):
         self._total_faint_time = 500
         self._fainted = ""
         self._principal_pokemon_sprite_position = [80, 270]
-        self._enemy_pokemon_sprite_position = (530, 1)
+        self._enemy_pokemon_sprite_position = (530, 20)
 
         self._message1 = self._default_font.render("What will", True,
                                                    (255, 255, 255))
