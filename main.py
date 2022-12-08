@@ -25,8 +25,10 @@ background_box = background.get_rect()
 background_box.height = 416
 background_box.width = 900
 
-defaultfont = pygame.font.Font("assets/fonts/poke_font.ttf", 55)
-smallfont = pygame.font.Font("assets/fonts/poke_font.ttf", 45)
+default_font = pygame.font.Font("assets/fonts/poke_font.ttf", 50)
+log_font = pygame.font.Font("assets/fonts/poke_font.ttf", 65)
+medium_font = pygame.font.Font("assets/fonts/poke_font.ttf", 55)
+small_font = pygame.font.Font("assets/fonts/poke_font.ttf", 45)
 
 enemy_pokemon_number = int(random.uniform(1, 10))
 principal_pokemon_number = enemy_pokemon_number
@@ -39,14 +41,13 @@ enemy_pokemon = list(pokemons.values())[enemy_pokemon_number]
 
 
 principal_stats_box = BattleStatsBox(principal_pokemon, False,
-                                     smallfont, defaultfont)
+                                     small_font, default_font)
 enemy_stats_box = BattleStatsBox(enemy_pokemon, True,
-                                 smallfont, defaultfont)
+                                 small_font, default_font)
 
 battle_handler = Battle(principal_pokemon, enemy_pokemon)
-battle_choice = BattleOptionsBox(principal_pokemon, enemy_pokemon, battle_handler, defaultfont,
-                                 pygame.font.Font("assets/fonts/poke_font.ttf",
-                                                  55),
+battle_choice = BattleOptionsBox(principal_pokemon, enemy_pokemon, battle_handler, default_font, log_font,
+                                 medium_font,
                                  principal_stats_box,
                                  enemy_stats_box,
                                  pygame.image.load(principal_pokemon.back_image),

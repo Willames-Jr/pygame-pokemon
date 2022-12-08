@@ -91,8 +91,8 @@ class BattleStatsBox(pygame.sprite.Sprite):
                                                  True, self._font_color)
 
             image.blit(pokemon_name, (50, 7))
-            image.blit(actual_life, (210, 68))
-            image.blit(total_life, (285, 68))
+            image.blit(actual_life, (205, 68))
+            image.blit(total_life, (280, 68))
             image.blit(pokemon_lvl, (280, 7))
             life_position = self._principal_pokemon_life_position
             non_volatile_status_position = self._principal_pokemon_status_position

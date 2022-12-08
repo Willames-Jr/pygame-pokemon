@@ -9,6 +9,7 @@ class BattleOptionsBox(pygame.sprite.Sprite):
     def __init__(self, pokemon: Pokemon, enemy_pokemon: Pokemon,
                  battle_handler: Battle,
                  font: pygame.font.Font,
+                 log_font: pygame.font.Font,
                  small_font: pygame.font.Font,
                  principal_bar: BattleStatsBox,
                  enemy_bar: BattleStatsBox,
@@ -30,6 +31,7 @@ class BattleOptionsBox(pygame.sprite.Sprite):
         self._enemy_pokemon = enemy_pokemon
         self._default_font = font
         self._small_font = small_font
+        self._log_font = log_font
         self._log_time = 0
         # TODO: Retirar essas barras daqui
         self._principal_pokemon_status_bar = principal_bar
@@ -48,7 +50,7 @@ class BattleOptionsBox(pygame.sprite.Sprite):
         self._total_faint_time = 500
         self._fainted = ""
         self._principal_pokemon_sprite_position = [80, 270]
-        self._enemy_pokemon_sprite_position = (530, 50)
+        self._enemy_pokemon_sprite_position = (530, 1)
 
         self._message1 = self._default_font.render("What will", True,
                                                    (255, 255, 255))
@@ -174,7 +176,7 @@ class BattleOptionsBox(pygame.sprite.Sprite):
             if self._enemy_pokemon_status_bar.pokemon_actual_life <= 0:
                 self._enemy_fainted = True
             self.box = pygame.image.load("assets/images/battle_dialog.png").convert()
-            self._actual_message = self._default_font.render(f"{action.message}", True, (255, 255, 255))
+            self._actual_message = self._log_font.render(f"{action.message}", True, (255, 255, 255))
             self.box.blit(self._actual_message, (37, 25))
             surface.blit(self.box, self.box_position)
             # alterar quando sair dos testes
@@ -196,9 +198,9 @@ class BattleOptionsBox(pygame.sprite.Sprite):
             self._block_interaction = False
             self.box.fill((0, 0, 0))
             self.box = pygame.image.load("assets/images/combat_choice.png").convert()
-            self._message1 = self._default_font.render("What will", True,
+            self._message1 = self._log_font.render("What will", True,
                                                        (255, 255, 255))
-            self._message2 = self._default_font.render(f"{self._pokemon.name.upper()} do?", True,
+            self._message2 = self._log_font.render(f"{self._pokemon.name.upper()} do?", True,
                                                        (255, 255, 255))
             self.box.blit(self._message1, (40, 30))
             self.box.blit(self._message2, (40, 80))
@@ -216,10 +218,10 @@ class BattleOptionsBox(pygame.sprite.Sprite):
         elif self._actual_screen == "battle":
             self._block_interaction = False
             surface.blit(self.box,  self.box_position)
-            surface.blit(self._move1, (70, 444))
-            surface.blit(self._move2, (70, 500))
-            surface.blit(self._move3, (345, 444))
-            surface.blit(self._move4, (345, 500))
+            surface.blit(self._move1, (70, 452))
+            surface.blit(self._move2, (70, 508))
+            surface.blit(self._move3, (345, 452))
+            surface.blit(self._move4, (345, 508))
             surface.blit(self.pp, (630, 440))
             surface.blit(self.move_pp, (745, 450))
             surface.blit(self.move_type, (630, 510))            

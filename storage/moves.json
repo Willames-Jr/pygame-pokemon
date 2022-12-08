@@ -299,7 +299,7 @@
         "min_turns": null
     },
     "swords-dance": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 14,
         "name": "swords-dance",
@@ -396,7 +396,7 @@
         "min_turns": null
     },
     "whirlwind": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 18,
         "name": "whirlwind",
@@ -1060,7 +1060,7 @@
         "min_turns": null
     },
     "roar": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 46,
         "name": "roar",
@@ -1185,7 +1185,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "all-opponents",
@@ -1249,7 +1249,7 @@
         "min_turns": null
     },
     "mist": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 54,
         "name": "mist",
@@ -1719,7 +1719,7 @@
         "min_turns": null
     },
     "growth": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 74,
         "name": "growth",
@@ -1733,7 +1733,7 @@
             },
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "user",
@@ -2203,7 +2203,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -2244,7 +2244,7 @@
         "min_turns": 2
     },
     "meditate": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 96,
         "name": "meditate",
@@ -2272,7 +2272,7 @@
         "min_turns": null
     },
     "agility": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 97,
         "name": "agility",
@@ -2346,7 +2346,7 @@
         "min_turns": null
     },
     "teleport": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 100,
         "name": "teleport",
@@ -2392,7 +2392,7 @@
         "min_turns": null
     },
     "mimic": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 102,
         "name": "mimic",
@@ -2443,7 +2443,7 @@
         "min_turns": null
     },
     "double-team": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 104,
         "name": "double-team",
@@ -2471,7 +2471,7 @@
         "min_turns": null
     },
     "recover": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 105,
         "name": "recover",
@@ -2494,7 +2494,7 @@
         "min_turns": null
     },
     "harden": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 106,
         "name": "harden",
@@ -2522,7 +2522,7 @@
         "min_turns": null
     },
     "minimize": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 107,
         "name": "minimize",
@@ -2601,7 +2601,7 @@
         "min_turns": 2
     },
     "withdraw": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 110,
         "name": "withdraw",
@@ -2629,7 +2629,7 @@
         "min_turns": null
     },
     "defense-curl": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 111,
         "name": "defense-curl",
@@ -2657,7 +2657,7 @@
         "min_turns": null
     },
     "barrier": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 112,
         "name": "barrier",
@@ -2685,7 +2685,7 @@
         "min_turns": null
     },
     "light-screen": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 113,
         "name": "light-screen",
@@ -2708,7 +2708,7 @@
         "min_turns": null
     },
     "haze": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 114,
         "name": "haze",
@@ -2731,7 +2731,7 @@
         "min_turns": null
     },
     "reflect": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 115,
         "name": "reflect",
@@ -2754,7 +2754,7 @@
         "min_turns": null
     },
     "focus-energy": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 116,
         "name": "focus-energy",
@@ -2777,7 +2777,7 @@
         "min_turns": null
     },
     "bide": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 117,
         "name": "bide",
@@ -2800,7 +2800,7 @@
         "min_turns": null
     },
     "metronome": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 118,
         "name": "metronome",
@@ -2823,7 +2823,7 @@
         "min_turns": null
     },
     "mirror-move": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 119,
         "name": "mirror-move",
@@ -3053,7 +3053,7 @@
         "min_turns": 5
     },
     "swift": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 129,
         "name": "swift",
@@ -3150,7 +3150,7 @@
         "min_turns": null
     },
     "amnesia": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 133,
         "name": "amnesia",
@@ -3160,7 +3160,7 @@
         "stat_changes": [
             {
                 "change": 2,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "user",
@@ -3206,7 +3206,7 @@
         "min_turns": null
     },
     "soft-boiled": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 135,
         "name": "soft-boiled",
@@ -3413,7 +3413,7 @@
         "min_turns": null
     },
     "transform": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 144,
         "name": "transform",
@@ -3561,7 +3561,7 @@
         "min_turns": null
     },
     "splash": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 150,
         "name": "splash",
@@ -3584,7 +3584,7 @@
         "min_turns": null
     },
     "acid-armor": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 151,
         "name": "acid-armor",
@@ -3704,7 +3704,7 @@
         "min_turns": null
     },
     "rest": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 156,
         "name": "rest",
@@ -3773,7 +3773,7 @@
         "min_turns": null
     },
     "sharpen": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 159,
         "name": "sharpen",
@@ -3801,7 +3801,7 @@
         "min_turns": null
     },
     "conversion": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 160,
         "name": "conversion",
@@ -3893,7 +3893,7 @@
         "min_turns": null
     },
     "substitute": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 164,
         "name": "substitute",
@@ -3916,7 +3916,7 @@
         "min_turns": null
     },
     "struggle": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 165,
         "name": "struggle",
@@ -3939,7 +3939,7 @@
         "min_turns": null
     },
     "sketch": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 166,
         "name": "sketch",
@@ -4008,7 +4008,7 @@
         "min_turns": null
     },
     "spider-web": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 169,
         "name": "spider-web",
@@ -4031,7 +4031,7 @@
         "min_turns": null
     },
     "mind-reader": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 170,
         "name": "mind-reader",
@@ -4123,7 +4123,7 @@
         "min_turns": null
     },
     "curse": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 174,
         "name": "curse",
@@ -4169,7 +4169,7 @@
         "min_turns": null
     },
     "conversion-2": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 176,
         "name": "conversion-2",
@@ -4312,7 +4312,7 @@
         "min_turns": null
     },
     "protect": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 182,
         "name": "protect",
@@ -4386,7 +4386,7 @@
         "min_turns": null
     },
     "feint-attack": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 185,
         "name": "feint-attack",
@@ -4432,7 +4432,7 @@
         "min_turns": 2
     },
     "belly-drum": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 187,
         "name": "belly-drum",
@@ -4534,7 +4534,7 @@
         "min_turns": null
     },
     "spikes": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 191,
         "name": "spikes",
@@ -4580,7 +4580,7 @@
         "min_turns": null
     },
     "foresight": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 193,
         "name": "foresight",
@@ -4603,7 +4603,7 @@
         "min_turns": null
     },
     "destiny-bond": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 194,
         "name": "destiny-bond",
@@ -4626,7 +4626,7 @@
         "min_turns": null
     },
     "perish-song": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 195,
         "name": "perish-song",
@@ -4677,7 +4677,7 @@
         "min_turns": null
     },
     "detect": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 197,
         "name": "detect",
@@ -4723,7 +4723,7 @@
         "min_turns": null
     },
     "lock-on": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 199,
         "name": "lock-on",
@@ -4769,7 +4769,7 @@
         "min_turns": null
     },
     "sandstorm": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 201,
         "name": "sandstorm",
@@ -4815,7 +4815,7 @@
         "min_turns": null
     },
     "endure": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 203,
         "name": "endure",
@@ -4940,7 +4940,7 @@
         "min_turns": 2
     },
     "milk-drink": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 208,
         "name": "milk-drink",
@@ -5037,7 +5037,7 @@
         "min_turns": null
     },
     "mean-look": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 212,
         "name": "mean-look",
@@ -5083,7 +5083,7 @@
         "min_turns": null
     },
     "sleep-talk": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 214,
         "name": "sleep-talk",
@@ -5106,7 +5106,7 @@
         "min_turns": null
     },
     "heal-bell": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 215,
         "name": "heal-bell",
@@ -5198,7 +5198,7 @@
         "min_turns": null
     },
     "safeguard": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 219,
         "name": "safeguard",
@@ -5221,7 +5221,7 @@
         "min_turns": null
     },
     "pain-split": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 220,
         "name": "pain-split",
@@ -5359,7 +5359,7 @@
         "min_turns": null
     },
     "baton-pass": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 226,
         "name": "baton-pass",
@@ -5540,7 +5540,7 @@
         "min_turns": null
     },
     "vital-throw": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 233,
         "name": "vital-throw",
@@ -5563,7 +5563,7 @@
         "min_turns": null
     },
     "morning-sun": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 234,
         "name": "morning-sun",
@@ -5586,7 +5586,7 @@
         "min_turns": null
     },
     "synthesis": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 235,
         "name": "synthesis",
@@ -5609,7 +5609,7 @@
         "min_turns": null
     },
     "moonlight": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 236,
         "name": "moonlight",
@@ -5701,7 +5701,7 @@
         "min_turns": null
     },
     "rain-dance": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 240,
         "name": "rain-dance",
@@ -5724,7 +5724,7 @@
         "min_turns": null
     },
     "sunny-day": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 241,
         "name": "sunny-day",
@@ -5798,7 +5798,7 @@
         "min_turns": null
     },
     "psych-up": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 244,
         "name": "psych-up",
@@ -5862,11 +5862,11 @@
             },
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             },
             {
                 "change": 1,
-                "name": "special-defense"
+                "name": "sp_defense"
             },
             {
                 "change": 1,
@@ -5898,7 +5898,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -6059,7 +6059,7 @@
         "min_turns": null
     },
     "stockpile": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 254,
         "name": "stockpile",
@@ -6105,7 +6105,7 @@
         "min_turns": null
     },
     "swallow": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 256,
         "name": "swallow",
@@ -6151,7 +6151,7 @@
         "min_turns": null
     },
     "hail": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 258,
         "name": "hail",
@@ -6207,7 +6207,7 @@
         "stat_changes": [
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -6340,7 +6340,7 @@
         "min_turns": null
     },
     "follow-me": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 266,
         "name": "follow-me",
@@ -6363,7 +6363,7 @@
         "min_turns": null
     },
     "nature-power": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 267,
         "name": "nature-power",
@@ -6386,7 +6386,7 @@
         "min_turns": null
     },
     "charge": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 268,
         "name": "charge",
@@ -6396,7 +6396,7 @@
         "stat_changes": [
             {
                 "change": 1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "user",
@@ -6437,7 +6437,7 @@
         "min_turns": null
     },
     "helping-hand": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 270,
         "name": "helping-hand",
@@ -6483,7 +6483,7 @@
         "min_turns": null
     },
     "role-play": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 272,
         "name": "role-play",
@@ -6506,7 +6506,7 @@
         "min_turns": null
     },
     "wish": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 273,
         "name": "wish",
@@ -6529,7 +6529,7 @@
         "min_turns": null
     },
     "assist": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 274,
         "name": "assist",
@@ -6552,7 +6552,7 @@
         "min_turns": null
     },
     "ingrain": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 275,
         "name": "ingrain",
@@ -6607,7 +6607,7 @@
         "min_turns": null
     },
     "magic-coat": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 277,
         "name": "magic-coat",
@@ -6630,7 +6630,7 @@
         "min_turns": null
     },
     "recycle": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 278,
         "name": "recycle",
@@ -6699,7 +6699,7 @@
         "min_turns": null
     },
     "yawn": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 281,
         "name": "yawn",
@@ -6791,7 +6791,7 @@
         "min_turns": null
     },
     "skill-swap": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 285,
         "name": "skill-swap",
@@ -6814,7 +6814,7 @@
         "min_turns": null
     },
     "imprison": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 286,
         "name": "imprison",
@@ -6837,7 +6837,7 @@
         "min_turns": null
     },
     "refresh": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 287,
         "name": "refresh",
@@ -6860,7 +6860,7 @@
         "min_turns": null
     },
     "grudge": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 288,
         "name": "grudge",
@@ -6883,7 +6883,7 @@
         "min_turns": null
     },
     "snatch": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 289,
         "name": "snatch",
@@ -6975,7 +6975,7 @@
         "min_turns": null
     },
     "camouflage": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 293,
         "name": "camouflage",
@@ -6998,7 +6998,7 @@
         "min_turns": null
     },
     "tail-glow": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 294,
         "name": "tail-glow",
@@ -7008,7 +7008,7 @@
         "stat_changes": [
             {
                 "change": 3,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "user",
@@ -7036,7 +7036,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -7064,7 +7064,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -7156,7 +7156,7 @@
         "min_turns": null
     },
     "mud-sport": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 300,
         "name": "mud-sport",
@@ -7225,7 +7225,7 @@
         "min_turns": null
     },
     "slack-off": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 303,
         "name": "slack-off",
@@ -7442,7 +7442,7 @@
         "min_turns": null
     },
     "aromatherapy": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 312,
         "name": "aromatherapy",
@@ -7475,7 +7475,7 @@
         "stat_changes": [
             {
                 "change": -2,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -7526,7 +7526,7 @@
         "stat_changes": [
             {
                 "change": -2,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -7544,7 +7544,7 @@
         "min_turns": null
     },
     "odor-sleuth": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 316,
         "name": "odor-sleuth",
@@ -7613,11 +7613,11 @@
             },
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             },
             {
                 "change": 1,
-                "name": "special-defense"
+                "name": "sp_defense"
             },
             {
                 "change": 1,
@@ -7649,7 +7649,7 @@
         "stat_changes": [
             {
                 "change": -2,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -7722,7 +7722,7 @@
         "min_turns": null
     },
     "cosmic-power": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 322,
         "name": "cosmic-power",
@@ -7736,7 +7736,7 @@
             },
             {
                 "change": 1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "user",
@@ -7800,7 +7800,7 @@
         "min_turns": 2
     },
     "shadow-punch": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 325,
         "name": "shadow-punch",
@@ -7966,7 +7966,7 @@
         "min_turns": null
     },
     "aerial-ace": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 332,
         "name": "aerial-ace",
@@ -8012,7 +8012,7 @@
         "min_turns": null
     },
     "iron-defense": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 334,
         "name": "iron-defense",
@@ -8040,7 +8040,7 @@
         "min_turns": null
     },
     "block": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 335,
         "name": "block",
@@ -8063,7 +8063,7 @@
         "min_turns": null
     },
     "howl": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 336,
         "name": "howl",
@@ -8137,7 +8137,7 @@
         "min_turns": null
     },
     "bulk-up": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 339,
         "name": "bulk-up",
@@ -8289,7 +8289,7 @@
         "min_turns": null
     },
     "magical-leaf": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 345,
         "name": "magical-leaf",
@@ -8312,7 +8312,7 @@
         "min_turns": null
     },
     "water-sport": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 346,
         "name": "water-sport",
@@ -8335,7 +8335,7 @@
         "min_turns": null
     },
     "calm-mind": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 347,
         "name": "calm-mind",
@@ -8345,11 +8345,11 @@
         "stat_changes": [
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             },
             {
                 "change": 1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "user",
@@ -8390,7 +8390,7 @@
         "min_turns": null
     },
     "dragon-dance": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 349,
         "name": "dragon-dance",
@@ -8445,7 +8445,7 @@
         "min_turns": null
     },
     "shock-wave": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 351,
         "name": "shock-wave",
@@ -8524,7 +8524,7 @@
         "stat_changes": [
             {
                 "change": -2,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -8542,7 +8542,7 @@
         "min_turns": null
     },
     "roost": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 355,
         "name": "roost",
@@ -8565,7 +8565,7 @@
         "min_turns": null
     },
     "gravity": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 356,
         "name": "gravity",
@@ -8588,7 +8588,7 @@
         "min_turns": null
     },
     "miracle-eye": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 357,
         "name": "miracle-eye",
@@ -8685,7 +8685,7 @@
         "min_turns": null
     },
     "healing-wish": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 361,
         "name": "healing-wish",
@@ -8800,7 +8800,7 @@
         "min_turns": null
     },
     "tailwind": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 366,
         "name": "tailwind",
@@ -8823,7 +8823,7 @@
         "min_turns": null
     },
     "acupressure": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 367,
         "name": "acupressure",
@@ -8906,7 +8906,7 @@
             },
             {
                 "change": -1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -9039,7 +9039,7 @@
         "min_turns": null
     },
     "trump-card": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 376,
         "name": "trump-card",
@@ -9108,7 +9108,7 @@
         "min_turns": null
     },
     "power-trick": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 379,
         "name": "power-trick",
@@ -9154,7 +9154,7 @@
         "min_turns": null
     },
     "lucky-chant": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 381,
         "name": "lucky-chant",
@@ -9177,7 +9177,7 @@
         "min_turns": null
     },
     "me-first": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 382,
         "name": "me-first",
@@ -9200,7 +9200,7 @@
         "min_turns": null
     },
     "copycat": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 383,
         "name": "copycat",
@@ -9223,7 +9223,7 @@
         "min_turns": null
     },
     "power-swap": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 384,
         "name": "power-swap",
@@ -9246,7 +9246,7 @@
         "min_turns": null
     },
     "guard-swap": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 385,
         "name": "guard-swap",
@@ -9361,7 +9361,7 @@
         "min_turns": null
     },
     "toxic-spikes": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 390,
         "name": "toxic-spikes",
@@ -9384,7 +9384,7 @@
         "min_turns": null
     },
     "heart-swap": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 391,
         "name": "heart-swap",
@@ -9407,7 +9407,7 @@
         "min_turns": null
     },
     "aqua-ring": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 392,
         "name": "aqua-ring",
@@ -9430,7 +9430,7 @@
         "min_turns": null
     },
     "magnet-rise": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 393,
         "name": "magnet-rise",
@@ -9499,7 +9499,7 @@
         "min_turns": null
     },
     "aura-sphere": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 396,
         "name": "aura-sphere",
@@ -9522,7 +9522,7 @@
         "min_turns": null
     },
     "rock-polish": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 397,
         "name": "rock-polish",
@@ -9721,7 +9721,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -9864,7 +9864,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -9892,7 +9892,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -9943,7 +9943,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -10007,7 +10007,7 @@
         "min_turns": null
     },
     "nasty-plot": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 417,
         "name": "nasty-plot",
@@ -10017,7 +10017,7 @@
         "stat_changes": [
             {
                 "change": 2,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "user",
@@ -10331,7 +10331,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -10372,7 +10372,7 @@
         "min_turns": 2
     },
     "defog": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 432,
         "name": "defog",
@@ -10395,7 +10395,7 @@
         "min_turns": null
     },
     "trick-room": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 433,
         "name": "trick-room",
@@ -10428,7 +10428,7 @@
         "stat_changes": [
             {
                 "change": -2,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -10502,7 +10502,7 @@
         "stat_changes": [
             {
                 "change": -2,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -10635,7 +10635,7 @@
         "min_turns": null
     },
     "magnet-bomb": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 443,
         "name": "magnet-bomb",
@@ -10691,7 +10691,7 @@
         "stat_changes": [
             {
                 "change": -2,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "all-opponents",
@@ -10709,7 +10709,7 @@
         "min_turns": null
     },
     "stealth-rock": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 446,
         "name": "stealth-rock",
@@ -10834,7 +10834,7 @@
         "stat_changes": [
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -10921,7 +10921,7 @@
         "min_turns": null
     },
     "defend-order": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 455,
         "name": "defend-order",
@@ -10935,7 +10935,7 @@
             },
             {
                 "change": 1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "user",
@@ -10953,7 +10953,7 @@
         "min_turns": null
     },
     "heal-order": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 456,
         "name": "heal-order",
@@ -11068,7 +11068,7 @@
         "min_turns": null
     },
     "lunar-dance": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 461,
         "name": "lunar-dance",
@@ -11170,7 +11170,7 @@
         "stat_changes": [
             {
                 "change": -2,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -11206,11 +11206,11 @@
             },
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             },
             {
                 "change": 1,
-                "name": "special-defense"
+                "name": "sp_defense"
             },
             {
                 "change": 1,
@@ -11255,7 +11255,7 @@
         "min_turns": null
     },
     "hone-claws": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 468,
         "name": "hone-claws",
@@ -11287,7 +11287,7 @@
         "min_turns": null
     },
     "wide-guard": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 469,
         "name": "wide-guard",
@@ -11310,7 +11310,7 @@
         "min_turns": null
     },
     "guard-split": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 470,
         "name": "guard-split",
@@ -11333,7 +11333,7 @@
         "min_turns": null
     },
     "power-split": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 471,
         "name": "power-split",
@@ -11356,7 +11356,7 @@
         "min_turns": null
     },
     "wonder-room": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 472,
         "name": "wonder-room",
@@ -11425,7 +11425,7 @@
         "min_turns": null
     },
     "autotomize": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 475,
         "name": "autotomize",
@@ -11453,7 +11453,7 @@
         "min_turns": null
     },
     "rage-powder": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 476,
         "name": "rage-powder",
@@ -11476,7 +11476,7 @@
         "min_turns": null
     },
     "telekinesis": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 477,
         "name": "telekinesis",
@@ -11499,7 +11499,7 @@
         "min_turns": 3
     },
     "magic-room": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 478,
         "name": "magic-room",
@@ -11614,7 +11614,7 @@
         "min_turns": null
     },
     "quiver-dance": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 483,
         "name": "quiver-dance",
@@ -11624,11 +11624,11 @@
         "stat_changes": [
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             },
             {
                 "change": 1,
-                "name": "special-defense"
+                "name": "sp_defense"
             },
             {
                 "change": 1,
@@ -11770,7 +11770,7 @@
         "min_turns": null
     },
     "coil": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 489,
         "name": "coil",
@@ -11844,7 +11844,7 @@
         "stat_changes": [
             {
                 "change": -2,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -11931,7 +11931,7 @@
         "min_turns": null
     },
     "after-you": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 495,
         "name": "after-you",
@@ -12023,7 +12023,7 @@
         "min_turns": null
     },
     "clear-smog": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 499,
         "name": "clear-smog",
@@ -12069,7 +12069,7 @@
         "min_turns": null
     },
     "quick-guard": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 501,
         "name": "quick-guard",
@@ -12092,7 +12092,7 @@
         "min_turns": null
     },
     "ally-switch": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 502,
         "name": "ally-switch",
@@ -12138,7 +12138,7 @@
         "min_turns": null
     },
     "shell-smash": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 504,
         "name": "shell-smash",
@@ -12161,7 +12161,7 @@
         "min_turns": null
     },
     "heal-pulse": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 505,
         "name": "heal-pulse",
@@ -12230,7 +12230,7 @@
         "min_turns": null
     },
     "shift-gear": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 508,
         "name": "shift-gear",
@@ -12354,7 +12354,7 @@
         "min_turns": null
     },
     "reflect-type": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 513,
         "name": "reflect-type",
@@ -12423,7 +12423,7 @@
         "min_turns": null
     },
     "bestow": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 516,
         "name": "bestow",
@@ -12571,7 +12571,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "all-opponents",
@@ -12663,7 +12663,7 @@
         "min_turns": null
     },
     "work-up": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 526,
         "name": "work-up",
@@ -12677,7 +12677,7 @@
             },
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "user",
@@ -12963,7 +12963,7 @@
         "min_turns": null
     },
     "cotton-guard": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 538,
         "name": "cotton-guard",
@@ -13310,7 +13310,7 @@
         "stat_changes": [
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -13384,7 +13384,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "all-opponents",
@@ -13439,7 +13439,7 @@
             },
             {
                 "change": -1,
-                "name": "special-defense"
+                "name": "sp_defense"
             },
             {
                 "change": -1,
@@ -13530,7 +13530,7 @@
         "min_turns": null
     },
     "mat-block": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 561,
         "name": "mat-block",
@@ -13576,7 +13576,7 @@
         "min_turns": null
     },
     "rototiller": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 563,
         "name": "rototiller",
@@ -13590,7 +13590,7 @@
             },
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "all-pokemon",
@@ -13608,7 +13608,7 @@
         "min_turns": null
     },
     "sticky-web": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 564,
         "name": "sticky-web",
@@ -13714,7 +13714,7 @@
             },
             {
                 "change": -1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -13732,7 +13732,7 @@
         "min_turns": null
     },
     "ion-deluge": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 569,
         "name": "ion-deluge",
@@ -13847,7 +13847,7 @@
         "min_turns": null
     },
     "disarming-voice": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 574,
         "name": "disarming-voice",
@@ -13884,7 +13884,7 @@
             },
             {
                 "change": -1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -13902,7 +13902,7 @@
         "min_turns": null
     },
     "topsy-turvy": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 576,
         "name": "topsy-turvy",
@@ -13948,7 +13948,7 @@
         "min_turns": null
     },
     "crafty-shield": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 578,
         "name": "crafty-shield",
@@ -13971,7 +13971,7 @@
         "min_turns": null
     },
     "flower-shield": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 579,
         "name": "flower-shield",
@@ -13999,7 +13999,7 @@
         "min_turns": null
     },
     "grassy-terrain": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 580,
         "name": "grassy-terrain",
@@ -14022,7 +14022,7 @@
         "min_turns": null
     },
     "misty-terrain": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 581,
         "name": "misty-terrain",
@@ -14045,7 +14045,7 @@
         "min_turns": null
     },
     "electrify": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 582,
         "name": "electrify",
@@ -14129,7 +14129,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -14170,7 +14170,7 @@
         "min_turns": null
     },
     "fairy-lock": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 587,
         "name": "fairy-lock",
@@ -14193,7 +14193,7 @@
         "min_turns": null
     },
     "kings-shield": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 588,
         "name": "kings-shield",
@@ -14216,7 +14216,7 @@
         "min_turns": null
     },
     "play-nice": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 589,
         "name": "play-nice",
@@ -14244,7 +14244,7 @@
         "min_turns": null
     },
     "confide": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 590,
         "name": "confide",
@@ -14254,7 +14254,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -14323,7 +14323,7 @@
         "min_turns": null
     },
     "hyperspace-hole": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 593,
         "name": "hyperspace-hole",
@@ -14379,7 +14379,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -14397,7 +14397,7 @@
         "min_turns": null
     },
     "spiky-shield": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 596,
         "name": "spiky-shield",
@@ -14420,7 +14420,7 @@
         "min_turns": null
     },
     "aromatic-mist": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 597,
         "name": "aromatic-mist",
@@ -14430,7 +14430,7 @@
         "stat_changes": [
             {
                 "change": 1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "ally",
@@ -14458,7 +14458,7 @@
         "stat_changes": [
             {
                 "change": -2,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -14490,7 +14490,7 @@
             },
             {
                 "change": -1,
-                "name": "special-attack"
+                "name": "sp_attack"
             },
             {
                 "change": -1,
@@ -14535,7 +14535,7 @@
         "min_turns": null
     },
     "geomancy": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 601,
         "name": "geomancy",
@@ -14545,11 +14545,11 @@
         "stat_changes": [
             {
                 "change": 2,
-                "name": "special-attack"
+                "name": "sp_attack"
             },
             {
                 "change": 2,
-                "name": "special-defense"
+                "name": "sp_defense"
             },
             {
                 "change": 2,
@@ -14571,7 +14571,7 @@
         "min_turns": null
     },
     "magnetic-flux": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 602,
         "name": "magnetic-flux",
@@ -14585,7 +14585,7 @@
             },
             {
                 "change": 1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "user-and-allies",
@@ -14603,7 +14603,7 @@
         "min_turns": null
     },
     "happy-hour": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 603,
         "name": "happy-hour",
@@ -14626,7 +14626,7 @@
         "min_turns": null
     },
     "electric-terrain": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 604,
         "name": "electric-terrain",
@@ -14672,7 +14672,7 @@
         "min_turns": null
     },
     "celebrate": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 606,
         "name": "celebrate",
@@ -14695,7 +14695,7 @@
         "min_turns": null
     },
     "hold-hands": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 607,
         "name": "hold-hands",
@@ -15018,7 +15018,7 @@
             },
             {
                 "change": -1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -15036,7 +15036,7 @@
         "min_turns": null
     },
     "hyperspace-fury": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 621,
         "name": "hyperspace-fury",
@@ -15064,7 +15064,7 @@
         "min_turns": null
     },
     "breakneck-blitz--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 622,
         "name": "breakneck-blitz--physical",
@@ -15087,7 +15087,7 @@
         "min_turns": null
     },
     "breakneck-blitz--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 623,
         "name": "breakneck-blitz--special",
@@ -15110,7 +15110,7 @@
         "min_turns": null
     },
     "all-out-pummeling--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 624,
         "name": "all-out-pummeling--physical",
@@ -15133,7 +15133,7 @@
         "min_turns": null
     },
     "all-out-pummeling--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 625,
         "name": "all-out-pummeling--special",
@@ -15156,7 +15156,7 @@
         "min_turns": null
     },
     "supersonic-skystrike--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 626,
         "name": "supersonic-skystrike--physical",
@@ -15179,7 +15179,7 @@
         "min_turns": null
     },
     "supersonic-skystrike--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 627,
         "name": "supersonic-skystrike--special",
@@ -15202,7 +15202,7 @@
         "min_turns": null
     },
     "acid-downpour--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 628,
         "name": "acid-downpour--physical",
@@ -15225,7 +15225,7 @@
         "min_turns": null
     },
     "acid-downpour--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 629,
         "name": "acid-downpour--special",
@@ -15248,7 +15248,7 @@
         "min_turns": null
     },
     "tectonic-rage--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 630,
         "name": "tectonic-rage--physical",
@@ -15271,7 +15271,7 @@
         "min_turns": null
     },
     "tectonic-rage--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 631,
         "name": "tectonic-rage--special",
@@ -15294,7 +15294,7 @@
         "min_turns": null
     },
     "continental-crush--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 632,
         "name": "continental-crush--physical",
@@ -15317,7 +15317,7 @@
         "min_turns": null
     },
     "continental-crush--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 633,
         "name": "continental-crush--special",
@@ -15340,7 +15340,7 @@
         "min_turns": null
     },
     "savage-spin-out--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 634,
         "name": "savage-spin-out--physical",
@@ -15363,7 +15363,7 @@
         "min_turns": null
     },
     "savage-spin-out--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 635,
         "name": "savage-spin-out--special",
@@ -15386,7 +15386,7 @@
         "min_turns": null
     },
     "never-ending-nightmare--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 636,
         "name": "never-ending-nightmare--physical",
@@ -15409,7 +15409,7 @@
         "min_turns": null
     },
     "never-ending-nightmare--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 637,
         "name": "never-ending-nightmare--special",
@@ -15432,7 +15432,7 @@
         "min_turns": null
     },
     "corkscrew-crash--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 638,
         "name": "corkscrew-crash--physical",
@@ -15455,7 +15455,7 @@
         "min_turns": null
     },
     "corkscrew-crash--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 639,
         "name": "corkscrew-crash--special",
@@ -15478,7 +15478,7 @@
         "min_turns": null
     },
     "inferno-overdrive--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 640,
         "name": "inferno-overdrive--physical",
@@ -15501,7 +15501,7 @@
         "min_turns": null
     },
     "inferno-overdrive--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 641,
         "name": "inferno-overdrive--special",
@@ -15524,7 +15524,7 @@
         "min_turns": null
     },
     "hydro-vortex--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 642,
         "name": "hydro-vortex--physical",
@@ -15547,7 +15547,7 @@
         "min_turns": null
     },
     "hydro-vortex--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 643,
         "name": "hydro-vortex--special",
@@ -15570,7 +15570,7 @@
         "min_turns": null
     },
     "bloom-doom--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 644,
         "name": "bloom-doom--physical",
@@ -15593,7 +15593,7 @@
         "min_turns": null
     },
     "bloom-doom--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 645,
         "name": "bloom-doom--special",
@@ -15616,7 +15616,7 @@
         "min_turns": null
     },
     "gigavolt-havoc--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 646,
         "name": "gigavolt-havoc--physical",
@@ -15639,7 +15639,7 @@
         "min_turns": null
     },
     "gigavolt-havoc--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 647,
         "name": "gigavolt-havoc--special",
@@ -15662,7 +15662,7 @@
         "min_turns": null
     },
     "shattered-psyche--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 648,
         "name": "shattered-psyche--physical",
@@ -15685,7 +15685,7 @@
         "min_turns": null
     },
     "shattered-psyche--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 649,
         "name": "shattered-psyche--special",
@@ -15708,7 +15708,7 @@
         "min_turns": null
     },
     "subzero-slammer--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 650,
         "name": "subzero-slammer--physical",
@@ -15731,7 +15731,7 @@
         "min_turns": null
     },
     "subzero-slammer--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 651,
         "name": "subzero-slammer--special",
@@ -15754,7 +15754,7 @@
         "min_turns": null
     },
     "devastating-drake--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 652,
         "name": "devastating-drake--physical",
@@ -15777,7 +15777,7 @@
         "min_turns": null
     },
     "devastating-drake--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 653,
         "name": "devastating-drake--special",
@@ -15800,7 +15800,7 @@
         "min_turns": null
     },
     "black-hole-eclipse--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 654,
         "name": "black-hole-eclipse--physical",
@@ -15823,7 +15823,7 @@
         "min_turns": null
     },
     "black-hole-eclipse--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 655,
         "name": "black-hole-eclipse--special",
@@ -15846,7 +15846,7 @@
         "min_turns": null
     },
     "twinkle-tackle--physical": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 656,
         "name": "twinkle-tackle--physical",
@@ -15869,7 +15869,7 @@
         "min_turns": null
     },
     "twinkle-tackle--special": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 657,
         "name": "twinkle-tackle--special",
@@ -15892,7 +15892,7 @@
         "min_turns": null
     },
     "catastropika": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 658,
         "name": "catastropika",
@@ -15915,7 +15915,7 @@
         "min_turns": null
     },
     "shore-up": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 659,
         "name": "shore-up",
@@ -15961,7 +15961,7 @@
         "min_turns": null
     },
     "baneful-bunker": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 661,
         "name": "baneful-bunker",
@@ -16081,7 +16081,7 @@
         "min_turns": null
     },
     "floral-healing": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 666,
         "name": "floral-healing",
@@ -16201,7 +16201,7 @@
         "min_turns": null
     },
     "spotlight": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 671,
         "name": "spotlight",
@@ -16252,7 +16252,7 @@
         "min_turns": null
     },
     "laser-focus": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 673,
         "name": "laser-focus",
@@ -16275,7 +16275,7 @@
         "min_turns": null
     },
     "gear-up": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 674,
         "name": "gear-up",
@@ -16289,7 +16289,7 @@
             },
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "user-and-allies",
@@ -16376,7 +16376,7 @@
         "min_turns": null
     },
     "psychic-terrain": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 678,
         "name": "psychic-terrain",
@@ -16501,7 +16501,7 @@
         "min_turns": null
     },
     "speed-swap": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 683,
         "name": "speed-swap",
@@ -16524,7 +16524,7 @@
         "min_turns": null
     },
     "smart-strike": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 684,
         "name": "smart-strike",
@@ -16547,7 +16547,7 @@
         "min_turns": null
     },
     "purify": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 685,
         "name": "purify",
@@ -16644,7 +16644,7 @@
         "min_turns": null
     },
     "instruct": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 689,
         "name": "instruct",
@@ -16764,7 +16764,7 @@
         "min_turns": null
     },
     "aurora-veil": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 694,
         "name": "aurora-veil",
@@ -16787,7 +16787,7 @@
         "min_turns": null
     },
     "sinister-arrow-raid": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 695,
         "name": "sinister-arrow-raid",
@@ -16810,7 +16810,7 @@
         "min_turns": null
     },
     "malicious-moonsault": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 696,
         "name": "malicious-moonsault",
@@ -16833,7 +16833,7 @@
         "min_turns": null
     },
     "oceanic-operetta": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 697,
         "name": "oceanic-operetta",
@@ -16856,7 +16856,7 @@
         "min_turns": null
     },
     "guardian-of-alola": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 698,
         "name": "guardian-of-alola",
@@ -16879,7 +16879,7 @@
         "min_turns": null
     },
     "soul-stealing-7-star-strike": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 699,
         "name": "soul-stealing-7-star-strike",
@@ -16902,7 +16902,7 @@
         "min_turns": null
     },
     "stoked-sparksurfer": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 700,
         "name": "stoked-sparksurfer",
@@ -16925,7 +16925,7 @@
         "min_turns": null
     },
     "pulverizing-pancake": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 701,
         "name": "pulverizing-pancake",
@@ -16948,7 +16948,7 @@
         "min_turns": null
     },
     "extreme-evoboost": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 702,
         "name": "extreme-evoboost",
@@ -16966,11 +16966,11 @@
             },
             {
                 "change": 2,
-                "name": "special-attack"
+                "name": "sp_attack"
             },
             {
                 "change": 2,
-                "name": "special-defense"
+                "name": "sp_defense"
             },
             {
                 "change": 2,
@@ -16992,7 +16992,7 @@
         "min_turns": null
     },
     "genesis-supernova": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 703,
         "name": "genesis-supernova",
@@ -17048,7 +17048,7 @@
         "stat_changes": [
             {
                 "change": -2,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -17283,7 +17283,7 @@
         "min_turns": null
     },
     "tearful-look": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 715,
         "name": "tearful-look",
@@ -17297,7 +17297,7 @@
             },
             {
                 "change": -1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -17384,7 +17384,7 @@
         "min_turns": null
     },
     "10-000-000-volt-thunderbolt": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 719,
         "name": "10-000-000-volt-thunderbolt",
@@ -17476,7 +17476,7 @@
         "min_turns": null
     },
     "light-that-burns-the-sky": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 723,
         "name": "light-that-burns-the-sky",
@@ -17499,7 +17499,7 @@
         "min_turns": null
     },
     "searing-sunraze-smash": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 724,
         "name": "searing-sunraze-smash",
@@ -17522,7 +17522,7 @@
         "min_turns": null
     },
     "menacing-moonraze-maelstrom": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 725,
         "name": "menacing-moonraze-maelstrom",
@@ -17545,7 +17545,7 @@
         "min_turns": null
     },
     "lets-snuggle-forever": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 726,
         "name": "lets-snuggle-forever",
@@ -17568,7 +17568,7 @@
         "min_turns": null
     },
     "splintered-stormshards": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 727,
         "name": "splintered-stormshards",
@@ -17591,7 +17591,7 @@
         "min_turns": null
     },
     "clangorous-soulblaze": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 728,
         "name": "clangorous-soulblaze",
@@ -17609,11 +17609,11 @@
             },
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             },
             {
                 "change": 1,
-                "name": "special-defense"
+                "name": "sp_defense"
             },
             {
                 "change": 1,
@@ -17709,7 +17709,7 @@
         "min_turns": null
     },
     "pika-papow": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 732,
         "name": "pika-papow",
@@ -17916,7 +17916,7 @@
         "min_turns": null
     },
     "veevee-volley": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 741,
         "name": "veevee-volley",
@@ -17962,7 +17962,7 @@
         "min_turns": null
     },
     "max-guard": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 743,
         "name": "max-guard",
@@ -18054,7 +18054,7 @@
         "min_turns": null
     },
     "stuff-cheeks": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 747,
         "name": "stuff-cheeks",
@@ -18082,7 +18082,7 @@
         "min_turns": null
     },
     "no-retreat": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 748,
         "name": "no-retreat",
@@ -18100,11 +18100,11 @@
             },
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             },
             {
                 "change": 1,
-                "name": "special-defense"
+                "name": "sp_defense"
             },
             {
                 "change": 1,
@@ -18200,7 +18200,7 @@
         "min_turns": null
     },
     "teatime": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 752,
         "name": "teatime",
@@ -18315,7 +18315,7 @@
         "min_turns": null
     },
     "max-flare": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 757,
         "name": "max-flare",
@@ -18338,7 +18338,7 @@
         "min_turns": null
     },
     "max-flutterby": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 758,
         "name": "max-flutterby",
@@ -18361,7 +18361,7 @@
         "min_turns": null
     },
     "max-lightning": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 759,
         "name": "max-lightning",
@@ -18384,7 +18384,7 @@
         "min_turns": null
     },
     "max-strike": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 760,
         "name": "max-strike",
@@ -18407,7 +18407,7 @@
         "min_turns": null
     },
     "max-knuckle": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 761,
         "name": "max-knuckle",
@@ -18430,7 +18430,7 @@
         "min_turns": null
     },
     "max-phantasm": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 762,
         "name": "max-phantasm",
@@ -18453,7 +18453,7 @@
         "min_turns": null
     },
     "max-hailstorm": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 763,
         "name": "max-hailstorm",
@@ -18476,7 +18476,7 @@
         "min_turns": null
     },
     "max-ooze": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 764,
         "name": "max-ooze",
@@ -18499,7 +18499,7 @@
         "min_turns": null
     },
     "max-geyser": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 765,
         "name": "max-geyser",
@@ -18522,7 +18522,7 @@
         "min_turns": null
     },
     "max-airstream": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 766,
         "name": "max-airstream",
@@ -18545,7 +18545,7 @@
         "min_turns": null
     },
     "max-starfall": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 767,
         "name": "max-starfall",
@@ -18568,7 +18568,7 @@
         "min_turns": null
     },
     "max-wyrmwind": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 768,
         "name": "max-wyrmwind",
@@ -18591,7 +18591,7 @@
         "min_turns": null
     },
     "max-mindstorm": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 769,
         "name": "max-mindstorm",
@@ -18614,7 +18614,7 @@
         "min_turns": null
     },
     "max-rockfall": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 770,
         "name": "max-rockfall",
@@ -18637,7 +18637,7 @@
         "min_turns": null
     },
     "max-quake": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 771,
         "name": "max-quake",
@@ -18660,7 +18660,7 @@
         "min_turns": null
     },
     "max-darkness": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 772,
         "name": "max-darkness",
@@ -18683,7 +18683,7 @@
         "min_turns": null
     },
     "max-overgrowth": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 773,
         "name": "max-overgrowth",
@@ -18706,7 +18706,7 @@
         "min_turns": null
     },
     "max-steelspike": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 774,
         "name": "max-steelspike",
@@ -18747,11 +18747,11 @@
             },
             {
                 "change": 1,
-                "name": "special-attack"
+                "name": "sp_attack"
             },
             {
                 "change": 1,
-                "name": "special-defense"
+                "name": "sp_defense"
             },
             {
                 "change": 1,
@@ -18796,7 +18796,7 @@
         "min_turns": null
     },
     "decorate": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 777,
         "name": "decorate",
@@ -18810,7 +18810,7 @@
             },
             {
                 "change": 2,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -19060,7 +19060,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-defense"
+                "name": "sp_defense"
             }
         ],
         "target": "selected-pokemon",
@@ -19116,7 +19116,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -19157,7 +19157,7 @@
         "min_turns": 2
     },
     "life-dew": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 791,
         "name": "life-dew",
@@ -19203,7 +19203,7 @@
         "min_turns": null
     },
     "false-surrender": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 793,
         "name": "false-surrender",
@@ -19512,7 +19512,7 @@
         "stat_changes": [
             {
                 "change": -1,
-                "name": "special-attack"
+                "name": "sp_attack"
             }
         ],
         "target": "selected-pokemon",
@@ -19622,7 +19622,7 @@
         "min_turns": null
     },
     "coaching": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 100,
         "id": 811,
         "name": "coaching",
@@ -19746,7 +19746,7 @@
         "min_turns": null
     },
     "jungle-healing": {
-        "accuracy": null,
+        "accuracy": 100,
         "effect_chance": 0,
         "id": 816,
         "name": "jungle-healing",
