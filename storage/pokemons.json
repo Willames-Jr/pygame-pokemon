@@ -1,6 +1,6 @@
 {
     "articuno":{
-        "hp":90,
+        "hp":190,
         "lvl":100,
         "type":["ice","flying"],
         "speed":85,
@@ -14,7 +14,7 @@
         "moves":["gust","ice-beam","blizzard","ancient-power"]
     },
     "blastoise":{
-        "hp":79,
+        "hp":179,
         "lvl":100,
         "type":["water"],
         "speed":78,
@@ -28,7 +28,7 @@
         "moves":["aqua-tail","water-pulse","skull-bash","iron-defense"]
     },
     "venusaur":{
-        "hp":80,
+        "hp":180,
         "lvl":100,
         "type":["grass","poison"],
         "speed":80,
@@ -42,7 +42,7 @@
         "moves":["razor-leaf","seed-bomb","sleep-powder","double-edge"]
     },
     "charizard":{
-        "hp":78,
+        "hp":178,
         "lvl":100,
         "type":["fire","flying"],
         "speed":100,
@@ -56,7 +56,7 @@
         "moves":["flamethrower","slash","dragon-pulse","fire-blast"]
     },
     "raichu":{
-        "hp":60,
+        "hp":160,
         "lvl":100,
         "type":["electric"],
         "speed":110,
@@ -70,7 +70,7 @@
         "moves":["thunderbolt","thunder","electro-ball","thunder-shock"]
     },
     "mewtwo":{
-        "hp":106,
+        "hp":206,
         "lvl":100,
         "type":["psychic"],
         "speed":130,
@@ -84,7 +84,7 @@
         "moves":["psychic","psystrike","poison-jab","dark-pulse"]
     },
     "mew":{
-        "hp":100,
+        "hp":200,
         "lvl":100,
         "type":["psychic"],
         "speed":100,
@@ -94,11 +94,11 @@
         "sp_attack":100,
         "sp_defense":100,
         "front_image":"./assets/images/mew_front.png",
-        "back_image":"./assets/images/mewt_back.png",
+        "back_image":"./assets/images/mew_back.png",
         "moves":["aura-sphere","psystrike","dragon-pulse","thunder"]
     },
     "rayquaza":{
-        "hp":105,
+        "hp":205,
         "lvl":100,
         "type":["dragon","flying"],
         "speed":95,
@@ -112,7 +112,7 @@
         "moves":["extreme-speed","hurricane","thunder","draco-meteor"]
     },
     "lapras":{
-        "hp":130,
+        "hp":230,
         "lvl":100,
         "type":["water","ice"],
         "speed":60,
@@ -126,7 +126,7 @@
         "moves":["ice-beam","water-pulse","avalanche","surf"]
     },
     "gengar":{
-        "hp":60,
+        "hp":160,
         "lvl":100,
         "type":["ghost","poison"],
         "speed":110,

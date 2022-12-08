@@ -1,6 +1,7 @@
 import pygame
 import sys
 import json
+import random
 from models.pokemon import Pokemon
 from models.move import Move
 from models.battle import Battle
@@ -24,11 +25,17 @@ background_box = background.get_rect()
 background_box.height = 416
 background_box.width = 900
 
-defaultfont = pygame.font.Font("assets/fonts/poke_font.ttf", 65)
+defaultfont = pygame.font.Font("assets/fonts/poke_font.ttf", 55)
 smallfont = pygame.font.Font("assets/fonts/poke_font.ttf", 45)
 
-principal_pokemon = pokemons["mewtwo"]
-enemy_pokemon = pokemons["gengar"]
+enemy_pokemon_number = int(random.uniform(1, 10))
+principal_pokemon_number = enemy_pokemon_number
+while principal_pokemon_number == enemy_pokemon_number:
+    principal_pokemon_number = int(random.uniform(1, 10))
+
+
+principal_pokemon = list(pokemons.values())[principal_pokemon_number]
+enemy_pokemon = list(pokemons.values())[enemy_pokemon_number]
 
 
 principal_stats_box = BattleStatsBox(principal_pokemon, False,

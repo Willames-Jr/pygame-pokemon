@@ -300,7 +300,7 @@
     },
     "swords-dance": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 14,
         "name": "swords-dance",
         "power": null,
@@ -627,7 +627,7 @@
     },
     "sand-attack": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 28,
         "name": "sand-attack",
         "power": null,
@@ -885,7 +885,7 @@
     },
     "tail-whip": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 39,
         "name": "tail-whip",
         "power": null,
@@ -1033,7 +1033,7 @@
     },
     "growl": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 45,
         "name": "growl",
         "power": null,
@@ -1720,7 +1720,7 @@
     },
     "growth": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 74,
         "name": "growth",
         "power": null,
@@ -1890,7 +1890,7 @@
     },
     "string-shot": {
         "accuracy": 95,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 81,
         "name": "string-shot",
         "power": null,
@@ -2245,7 +2245,7 @@
     },
     "meditate": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 96,
         "name": "meditate",
         "power": null,
@@ -2273,7 +2273,7 @@
     },
     "agility": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 97,
         "name": "agility",
         "power": null,
@@ -2416,7 +2416,7 @@
     },
     "screech": {
         "accuracy": 85,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 103,
         "name": "screech",
         "power": null,
@@ -2444,7 +2444,7 @@
     },
     "double-team": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 104,
         "name": "double-team",
         "power": null,
@@ -2495,7 +2495,7 @@
     },
     "harden": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 106,
         "name": "harden",
         "power": null,
@@ -2523,7 +2523,7 @@
     },
     "minimize": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 107,
         "name": "minimize",
         "power": null,
@@ -2551,7 +2551,7 @@
     },
     "smokescreen": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 108,
         "name": "smokescreen",
         "power": null,
@@ -2602,7 +2602,7 @@
     },
     "withdraw": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 110,
         "name": "withdraw",
         "power": null,
@@ -2630,7 +2630,7 @@
     },
     "defense-curl": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 111,
         "name": "defense-curl",
         "power": null,
@@ -2658,7 +2658,7 @@
     },
     "barrier": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 112,
         "name": "barrier",
         "power": null,
@@ -3151,7 +3151,7 @@
     },
     "amnesia": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 133,
         "name": "amnesia",
         "power": null,
@@ -3179,7 +3179,7 @@
     },
     "kinesis": {
         "accuracy": 80,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 134,
         "name": "kinesis",
         "power": null,
@@ -3511,7 +3511,7 @@
     },
     "flash": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 148,
         "name": "flash",
         "power": null,
@@ -3585,7 +3585,7 @@
     },
     "acid-armor": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 151,
         "name": "acid-armor",
         "power": null,
@@ -3774,7 +3774,7 @@
     },
     "sharpen": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 159,
         "name": "sharpen",
         "power": null,
@@ -4216,7 +4216,7 @@
     },
     "cotton-spore": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 178,
         "name": "cotton-spore",
         "power": null,
@@ -4359,7 +4359,7 @@
     },
     "scary-face": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 184,
         "name": "scary-face",
         "power": null,
@@ -4839,7 +4839,7 @@
     },
     "charm": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 204,
         "name": "charm",
         "power": null,
@@ -4913,7 +4913,7 @@
     },
     "swagger": {
         "accuracy": 85,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 207,
         "name": "swagger",
         "power": null,
@@ -5457,7 +5457,7 @@
     },
     "sweet-scent": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 230,
         "name": "sweet-scent",
         "power": null,
@@ -6198,7 +6198,7 @@
     },
     "flatter": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 260,
         "name": "flatter",
         "power": null,
@@ -6387,7 +6387,7 @@
     },
     "charge": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 268,
         "name": "charge",
         "power": null,
@@ -6999,7 +6999,7 @@
     },
     "tail-glow": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 294,
         "name": "tail-glow",
         "power": null,
@@ -7083,7 +7083,7 @@
     },
     "feather-dance": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 297,
         "name": "feather-dance",
         "power": null,
@@ -7466,7 +7466,7 @@
     },
     "fake-tears": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 313,
         "name": "fake-tears",
         "power": null,
@@ -7640,7 +7640,7 @@
     },
     "metal-sound": {
         "accuracy": 85,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 319,
         "name": "metal-sound",
         "power": null,
@@ -7691,7 +7691,7 @@
     },
     "tickle": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 321,
         "name": "tickle",
         "power": null,
@@ -7723,7 +7723,7 @@
     },
     "cosmic-power": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 322,
         "name": "cosmic-power",
         "power": null,
@@ -8013,7 +8013,7 @@
     },
     "iron-defense": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 334,
         "name": "iron-defense",
         "power": null,
@@ -8064,7 +8064,7 @@
     },
     "howl": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 336,
         "name": "howl",
         "power": null,
@@ -8138,7 +8138,7 @@
     },
     "bulk-up": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 339,
         "name": "bulk-up",
         "power": null,
@@ -8336,7 +8336,7 @@
     },
     "calm-mind": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 347,
         "name": "calm-mind",
         "power": null,
@@ -8391,7 +8391,7 @@
     },
     "dragon-dance": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 349,
         "name": "dragon-dance",
         "power": null,
@@ -9523,7 +9523,7 @@
     },
     "rock-polish": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 397,
         "name": "rock-polish",
         "power": null,
@@ -10008,7 +10008,7 @@
     },
     "nasty-plot": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 417,
         "name": "nasty-plot",
         "power": null,
@@ -10682,7 +10682,7 @@
     },
     "captivate": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 445,
         "name": "captivate",
         "power": null,
@@ -10922,7 +10922,7 @@
     },
     "defend-order": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 455,
         "name": "defend-order",
         "power": null,
@@ -11256,7 +11256,7 @@
     },
     "hone-claws": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 468,
         "name": "hone-claws",
         "power": null,
@@ -11426,7 +11426,7 @@
     },
     "autotomize": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 475,
         "name": "autotomize",
         "power": null,
@@ -11615,7 +11615,7 @@
     },
     "quiver-dance": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 483,
         "name": "quiver-dance",
         "power": null,
@@ -11771,7 +11771,7 @@
     },
     "coil": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 489,
         "name": "coil",
         "power": null,
@@ -12231,7 +12231,7 @@
     },
     "shift-gear": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 508,
         "name": "shift-gear",
         "power": null,
@@ -12664,7 +12664,7 @@
     },
     "work-up": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 526,
         "name": "work-up",
         "power": null,
@@ -12964,7 +12964,7 @@
     },
     "cotton-guard": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 538,
         "name": "cotton-guard",
         "power": null,
@@ -14421,7 +14421,7 @@
     },
     "aromatic-mist": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 597,
         "name": "aromatic-mist",
         "power": null,
@@ -14449,7 +14449,7 @@
     },
     "eerie-impulse": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 598,
         "name": "eerie-impulse",
         "power": null,
@@ -14536,7 +14536,7 @@
     },
     "geomancy": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 601,
         "name": "geomancy",
         "power": null,
@@ -14572,7 +14572,7 @@
     },
     "magnetic-flux": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 602,
         "name": "magnetic-flux",
         "power": null,
@@ -14719,7 +14719,7 @@
     },
     "baby-doll-eyes": {
         "accuracy": 100,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 608,
         "name": "baby-doll-eyes",
         "power": null,
@@ -16276,7 +16276,7 @@
     },
     "gear-up": {
         "accuracy": null,
-        "effect_chance": null,
+        "effect_chance": 100,
         "id": 674,
         "name": "gear-up",
         "power": null,
