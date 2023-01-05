@@ -138,5 +138,19 @@
         "front_image":"./assets/images/gengar_front.png",
         "back_image":"./assets/images/gengar_back.png",
         "moves":["shadow-ball","venoshock","phantom-force","psychic"]
+    },
+    "lucario":{
+        "hp":170,
+        "lvl":100,
+        "type":["fighting","steel"],
+        "speed":90,
+        "name":"lucario",
+        "attack":120,
+        "defense":70,
+        "sp_attack":115,
+        "sp_defense":85,
+        "front_image":"./assets/images/gengar_front.png",
+        "back_image":"./assets/images/gengar_back.png",
+        "moves":["meteor-mash","heal-pulse","swords-dance","extreme-speed"]
     }
 }
