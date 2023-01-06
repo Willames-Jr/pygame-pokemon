@@ -71,7 +71,7 @@ class Move:
         return effectiveness, effectiveness_message
 
     def hits_number(self) -> int:
-        if self.min_hits == 0:
+        if self.min_hits == 0 or self.min_hits is None:
             return 1
         elif self.min_hits != self.max_hits:
             probability = random.uniform(1, 100)
@@ -83,8 +83,8 @@ class Move:
                 return 4
             elif 87.5 < probability <= 100:
                 return 5
-        else:
-            return self.min_hits
+        # else:
+        #    return self.min_hits
 
         return 0
 

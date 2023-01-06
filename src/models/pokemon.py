@@ -285,7 +285,7 @@ class Pokemon:
                 move_result.user_non_volatile_status = non_volatile_status
 
         battle_result: List[MoveResult] = [move_result]
-        if number_of_hits > 0:
+        if number_of_hits > 1:
             self.execute_move(move, target, total_hits, actual_hit, battle_result + previous_results)
         elif number_of_hits == total_hits:
             return battle_result + previous_results
