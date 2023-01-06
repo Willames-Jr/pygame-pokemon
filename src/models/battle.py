@@ -126,7 +126,7 @@ class Battle:
         # Atacando o outro pokemon
         if self._principal_pokemon.get_speed() > self._enemy_pokemon.get_speed():
             if principal_pokemon_can_attack:
-                p_attack_result = self._principal_pokemon.execute_move(principal_pokemon_attack, self._principal_pokemon, self._enemy_pokemon)
+                p_attack_result = self._principal_pokemon.execute_move(principal_pokemon_attack, self._enemy_pokemon)
                 battle_result.actions += self._create_actions(p_attack_result, self._principal_pokemon,
                                                               self._enemy_pokemon, principal_pokemon_attack.name, False)
 
@@ -137,11 +137,11 @@ class Battle:
                                                         message="You win"))
                     return battle_result
             if enemy_pokemon_can_attack:
-                e_attack_result = self._enemy_pokemon.execute_move(enemy_pokemon_attack, self._enemy_pokemon, self._principal_pokemon)
+                e_attack_result = self._enemy_pokemon.execute_move(enemy_pokemon_attack, self._principal_pokemon)
                 battle_result.actions += self._create_actions(e_attack_result, self._enemy_pokemon, self._principal_pokemon, enemy_pokemon_attack.name, True)
         else:
             if enemy_pokemon_can_attack:
-                e_attack_result = self._enemy_pokemon.execute_move(enemy_pokemon_attack, self._enemy_pokemon, self._principal_pokemon)
+                e_attack_result = self._enemy_pokemon.execute_move(enemy_pokemon_attack, self._principal_pokemon)
                 battle_result.actions += self._create_actions(e_attack_result, self._enemy_pokemon, self._principal_pokemon, enemy_pokemon_attack.name, True)
 
                 if self._principal_pokemon.hp <= 0 or self._enemy_pokemon.hp <= 0:
@@ -151,7 +151,7 @@ class Battle:
                                                         message="You lose"))
                     return battle_result
             if principal_pokemon_can_attack:
-                p_attack_result = self._principal_pokemon.execute_move(principal_pokemon_attack, self._principal_pokemon, self._enemy_pokemon)
+                p_attack_result = self._principal_pokemon.execute_move(principal_pokemon_attack, self._enemy_pokemon)
                 battle_result.actions += self._create_actions(p_attack_result, self._principal_pokemon,
                                                               self._enemy_pokemon, principal_pokemon_attack.name, False)
 

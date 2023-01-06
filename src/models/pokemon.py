@@ -34,7 +34,7 @@ class Pokemon:
     speed:  int
     back_image:  str
     front_image:  str
-    moves:  list[Move]
+    moves:  List[Move]
     lvl:  int
     id:  int = 0
     # Propriedades que não estão sendo usadas
@@ -129,7 +129,7 @@ class Pokemon:
                 status.active = False
                 status.turns = 0
 
-    def execute_move(self, move: Move, user, target, total_hits: int = 0, actual_hit: int = 0, previous_results: List[MoveResult] = []) -> List[MoveResult]:
+    def execute_move(self, move: Move, target, total_hits: int = 0, actual_hit: int = 0, previous_results: List[MoveResult] = []) -> List[MoveResult]:
         is_physical_attack = move.category == "physical"
 
         # Somente usado caso o ataque acerte mais de uma vez, como fury attack
@@ -145,8 +145,8 @@ class Pokemon:
 
         # Verificando se o movimento aplica algum efeito nos status ou aplica
         # status não volatil, como poison, freeze etc.
-        status_change = move.applyStatus(user, target)
-        non_volatile_status = move.applyNonVolatileStatus(user, target)
+        status_change = move.applyStatus(self, target)
+        non_volatile_status = move.applyNonVolatileStatus(self, target)
 
         acc = (self.accuracy * ((self.modifiers["accuracy"] + 3) / 3)
                if self.modifiers["accuracy"] >= 0
@@ -155,14 +155,19 @@ class Pokemon:
                if target.modifiers["evasion"] >= 0
                else target.evasion * (3/(-1*target.modifiers["evasion"] + 3)))
 
+        at_acc = move.accuracy * (acc / evs)
+        if at_acc < int(random.uniform(1, 100)):
+            return [MoveResult(enemy_damage=0,
+                               effectiveness="miss")]
+
         if move.category == "status":
-            healing = move.applyHealing(user)
-            drain = move.applyDrain(user, target, 0)
+            healing = move.applyHealing(self)
+            drain = move.applyDrain(self, target, 0)
             if drain == 0:
                 drain = healing
 
             move_result = MoveResult(enemy_damage=0,
-                                     drain=drain,
+                                     drain=int(drain),
                                      effectiveness="normal")
             if status_change is not None:
                 if status_change.target == "enemy":
@@ -177,10 +182,6 @@ class Pokemon:
             return [move_result]
 
         power = move.power
-        at_acc = move.accuracy * (acc / evs)
-        if at_acc < int(random.uniform(1, 100)):
-            return [MoveResult(enemy_damage=0,
-                               effectiveness="miss")]
 
         at, dt = (["attack", "defense"]
                   if is_physical_attack
@@ -266,7 +267,7 @@ class Pokemon:
         #           , effectiveness , random_multiplier)
 
         # Valor a ser adicionado ou subtraido da vida do pokemon atacante
-        drain = move.applyDrain(user, target, damage)
+        drain = move.applyDrain(self, target, damage)
 
         move_result = MoveResult(enemy_damage=damage,
                                  drain=drain,
@@ -284,8 +285,8 @@ class Pokemon:
                 move_result.user_non_volatile_status = non_volatile_status
 
         battle_result: List[MoveResult] = [move_result]
-        if number_of_hits != 1:
-            self.execute_move(move, user, target, total_hits, actual_hit, battle_result + previous_results)
+        if number_of_hits is not None:
+            self.execute_move(move, target, total_hits, actual_hit, battle_result + previous_results)
         elif number_of_hits == total_hits:
             return battle_result + previous_results
         else:
