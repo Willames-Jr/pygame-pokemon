@@ -32,3 +32,21 @@ def test_physical_damage(pokemons, moves):
     maxDamage = baseDamage * 2
 
     assert minDamage <= result[0].enemy_damage <= maxDamage
+
+
+def test_move_effectiveness(pokemons, moves):
+    articuno = pokemons["articuno"]
+    gengar = pokemons["gengar"]
+
+    fire_blast = moves["fire-blast"]
+    ice_ball = moves["ice-ball"]
+    bullet_punch = moves["bullet-punch"]
+
+    super_effective = fire_blast.effectiveness(articuno)
+    normal_effective = ice_ball.effectiveness(articuno)
+    non_effective = bullet_punch.effectiveness(articuno)
+
+    assert super_effective == (2, "super effective")
+    assert normal_effective == (1, "normal")
+
+    
