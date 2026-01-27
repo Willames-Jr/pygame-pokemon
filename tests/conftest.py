@@ -1,3 +1,5 @@
+import random
+import itertools
 import os
 from _pytest.fixtures import SubRequest
 import pytest
@@ -7,6 +9,14 @@ from models.move import Move
 
 from models.pokemon import Pokemon
 
+# different seed each time it is repeated
+_seed_counter = itertools.count()
+
+@pytest.hookimpl(tryfirst=True)
+def pytest_runtest_call(item):
+    seed = next(_seed_counter)
+    print('Using seed', seed)
+    random.seed(seed)
 
 @pytest.fixture(scope="session")
 def pokemons(request) -> Dict[str, Pokemon] | Pokemon:
