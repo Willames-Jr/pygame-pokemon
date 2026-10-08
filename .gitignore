@@ -1,0 +1,5 @@
+.mypy_cache/
+.tox/*
+build/
+**__pycache__**
+**.egg-info
